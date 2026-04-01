@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kaipanla.kline.realtime</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/macclaw/.openclaw/workspace/emotion-kline/update_kline.sh</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/macclaw/.openclaw/workspace</string>
+    
+    <!-- 交易时段每 5 分钟执行：9:15-11:30, 13:00-15:05 -->
+    <key>StartInterval</key>
+    <integer>300</integer>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/kaipanla/kline_realtime_stdout.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/tmp/kaipanla/kline_realtime_stderr.log</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>

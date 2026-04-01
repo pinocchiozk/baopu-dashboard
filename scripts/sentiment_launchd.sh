@@ -27,8 +27,8 @@ if [ "$DAY_OF_WEEK" -gt 5 ]; then
 fi
 
 # 检查是否在交易时段（9:15-11:30, 13:00-15:30）
-CURRENT_HOUR=$(date +%H)
-CURRENT_MIN=$(date +%M)
+CURRENT_HOUR=$(date +%-H)  # 去掉前导零，避免八进制问题
+CURRENT_MIN=$(date +%-M)
 CURRENT_TIME=$((CURRENT_HOUR * 60 + CURRENT_MIN))
 
 OPEN_TIME=$((9 * 60 + 15))     # 9:15 = 555 分钟
@@ -51,9 +51,9 @@ log "=== 开始采集 ==="
 
 log "=== 采集完成 ==="
 
-# 15:30 收盘后生成日 K 线
+# 15:00 收盘后生成日 K 线（立即生成，无需等待）
 CURRENT_TIME_STR=$(date +%H:%M)
-if [ "$CURRENT_TIME_STR" = "15:30" ]; then
+if [ "$CURRENT_TIME_STR" = "15:00" ]; then
     log "📊 收盘，生成日 K 线..."
     "$SCRIPT_DIR/sentiment_daily_k.sh" >> "$LOG_FILE" 2>&1
     log "✅ 日 K 线生成完成"

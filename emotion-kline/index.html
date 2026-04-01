@@ -142,7 +142,7 @@
       </div>
       <div class="legend-item">
         <div class="legend-color overheat"></div>
-        <span>过热 (&gt;85)</span>
+        <span>过热 (&gt;=75)</span>
       </div>
       <div class="legend-item">
         <div class="legend-color ice"></div>
@@ -152,18 +152,15 @@
   </div>
 
   <script>
-    // 数据
-    const DATA = [
-      {"date": "2026-03-30", "label": "3 月 30 日", "open": 52, "close": 56, "high": 56, "low": 36},
-      {"date": "2026-03-31", "label": "3 月 31 日", "open": 55, "close": 35, "high": 55, "low": 20}
-    ];
+    // 数据（动态加载）
+    let DATA = [];
 
     // 配置
-    const ML = 50;   // 左边距
-    const MR = 30;   // 右边距
+    const ML = 45;   // 左边距
+    const MR = 25;   // 右边距
     const MT = 20;   // 上边距
-    const MB = 50;   // 下边距
-    const BW = 12;   // 蜡烛宽度
+    const MB = 45;   // 下边距
+    const BW = 20;   // 蜡烛宽度（加宽）
     
     // A 股配色
     const COLOR_UP = '#ff4d4d';      // 阳线红
@@ -201,41 +198,58 @@
       // 清空画布
       ctx.clearRect(0, 0, width, height);
       
-      // 画背景网格
+      // 1. 先画过热/冰点区域（最底层）- 冰点≤25，过热≥75
+      const yOverheat = toY(75, chartH);  // 过热区从 75 开始
+      const yIce = toY(25, chartH);
+      
+      ctx.fillStyle = 'rgba(244, 67, 54, 0.08)';  // 过热区红色
+      ctx.fillRect(ML, MT, chartW, yOverheat - MT);
+      
+      ctx.fillStyle = 'rgba(3, 169, 244, 0.08)';  // 冰点区蓝色
+      ctx.fillRect(ML, yIce, chartW, toY(0, chartH) - yIce);
+      
+      // 2. 画背景网格（在区域之上）
       ctx.strokeStyle = COLOR_GRID;
       ctx.lineWidth = 1;
       
-      // Y 轴刻度线 (0/20/40/60/80/100)
-      ctx.font = '11px sans-serif';
-      ctx.fillStyle = COLOR_TEXT;
+      // Y 轴刻度线 (0/5/10/15/.../100) - 集成到左侧，带颜色区分
+      ctx.font = '10px sans-serif';
       ctx.textAlign = 'right';
       
-      for (let v = 0; v <= 100; v += 20) {
+      for (let v = 0; v <= 100; v += 5) {
         const y = toY(v, chartH);
+        const isMajor = v % 20 === 0;  // 主刻度（0/20/40/60/80/100）
+        
+        // 画网格线
         ctx.beginPath();
         ctx.moveTo(ML, y);
         ctx.lineTo(width - MR, y);
+        ctx.strokeStyle = isMajor ? COLOR_GRID : '#222';
+        ctx.lineWidth = isMajor ? 1 : 0.5;
         ctx.stroke();
+        
+        // 根据区间设置颜色（冰点≤25，过热≥75）
+        let labelColor = COLOR_TEXT;  // 默认灰色
+        if (v <= 25) {
+          labelColor = '#03A9F4';  // 冰点区（≤25）- 蓝色
+        } else if (v >= 75) {
+          labelColor = '#F44336';  // 过热区（≥75）- 红色
+        }
+        
+        // 绘制刻度数值（左侧）
+        ctx.fillStyle = labelColor;
         ctx.fillText(v.toString(), ML - 8, y + 4);
       }
       
-      // 画过热/冰点区域
-      const yOverheat = toY(85, chartH);
-      const yIce = toY(25, chartH);
-      
-      ctx.fillStyle = 'rgba(244, 67, 54, 0.1)';
-      ctx.fillRect(ML, MT, chartW, yOverheat - MT);
-      
-      ctx.fillStyle = 'rgba(3, 169, 244, 0.1)';
-      ctx.fillRect(ML, yIce, chartW, toY(0, chartH) - yIce);
-      
-      // 画蜡烛
+      // 画蜡烛 - 紧密排列（标准 K 线图效果）
       const n = DATA.length;
-      const candleSpacing = chartW / n;
-      const candleWidth = Math.min(BW, candleSpacing * 0.7);
+      const candleWidth = 40;  // 蜡烛实体宽度（像素）
+      const candleSpacing = candleWidth * 1.5;  // 间距 = 蜡烛宽度的 1.5 倍
+      const totalWidth = candleSpacing * (n - 1) + candleWidth;  // 总占用宽度
+      const startX = ML + (chartW - totalWidth) / 2 + candleWidth / 2;  // 居中起始点
       
       DATA.forEach((day, i) => {
-        const cx = ML + candleSpacing * (i + 0.5);
+        const cx = startX + candleSpacing * i;  // 紧密排列
         const isUp = day.close >= day.open;
         const color = isUp ? COLOR_UP : COLOR_DOWN;
         
@@ -260,22 +274,7 @@
         ctx.fillStyle = color;
         ctx.fillRect(cx - candleWidth/2, bodyTop, candleWidth, bodyH);
         
-        // 画开盘标记线（左侧延伸）
-        ctx.strokeStyle = '#666';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(cx - candleWidth/2, yOpen);
-        ctx.lineTo(ML, yOpen);
-        ctx.stroke();
-        
-        // 画收盘标记线（右侧延伸）
-        ctx.strokeStyle = color;
-        ctx.beginPath();
-        ctx.moveTo(cx + candleWidth/2, yClose);
-        ctx.lineTo(width - MR, yClose);
-        ctx.stroke();
-        
-        // 标注最高/最低价
+        // 标注最高/最低价（直接显示，不引线）
         ctx.fillStyle = COLOR_TEXT;
         ctx.font = '10px sans-serif';
         ctx.textAlign = 'center';
@@ -294,18 +293,51 @@
       document.getElementById('statLow').textContent = last.low;
     }
     
-    // 主函数
-    function init() {
-      const size = resizeCanvas();
-      drawKline(size);
+    // 加载数据并初始化
+    async function loadDataAndDraw() {
+      try {
+        // 添加时间戳避免缓存
+        const response = await fetch('emotion-data.json?t=' + Date.now());
+        const data = await response.json();
+        DATA = data.days;
+        
+        const size = resizeCanvas();
+        drawKline(size);
+        console.log('📊 数据加载成功，共', DATA.length, '天');
+      } catch (err) {
+        console.error('❌ 数据加载失败:', err);
+        // 使用默认数据
+        DATA = [
+          {"date": "2026-03-30", "label": "3 月 30 日", "open": 52, "close": 56, "high": 56, "low": 36},
+          {"date": "2026-03-31", "label": "3 月 31 日", "open": 55, "close": 35, "high": 55, "low": 20}
+        ];
+        const size = resizeCanvas();
+        drawKline(size);
+      }
     }
     
     // 启动
-    init();
+    loadDataAndDraw();
     window.addEventListener('resize', () => {
       const size = resizeCanvas();
       drawKline(size);
     });
+    
+    // 每 2 分钟自动刷新数据（交易时段）
+    setInterval(() => {
+      const now = new Date();
+      const hour = now.getHours();
+      const min = now.getMinutes();
+      const time = hour * 60 + min;
+      
+      // 交易时段：9:15-11:30, 13:00-15:05
+      const isTradingTime = (time >= 555 && time <= 690) || (time >= 780 && time <= 905);
+      
+      if (isTradingTime) {
+        console.log('🔄 自动刷新数据...');
+        loadDataAndDraw();  // 只刷新数据，不刷新整个页面
+      }
+    }, 120000);  // 2 分钟
   </script>
 </body>
 </html>
