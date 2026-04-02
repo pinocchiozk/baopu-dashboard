@@ -1,0 +1,1065 @@
+{
+  "success": true,
+  "status": 0,
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "requestId": null,
+    "message": "OK",
+    "status": 0,
+    "code": 0,
+    "data": {
+      "protocolType": "SEARCH_DATA",
+      "id": "9d744094-ec3a-4b04-8ff9-ff93dbfff0f6",
+      "refSeq": null,
+      "keyEntityList": null,
+      "searchDataResultDTO": {
+        "questionId": "f05cfd95-d6a6-45cf-b5b5-c7e0e565a8bd",
+        "dataTableDTOList": [
+          {
+            "code": "688981.SH",
+            "entityName": "中芯国际(688981.SH)",
+            "table": {
+              "100000000000254": [
+                "599.5亿元",
+                "422亿元",
+                "245.3亿元"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "rawTable": {
+              "100000000000254": [
+                "59950583000",
+                "42199340000",
+                "24533815000"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000000254": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "headNameSub": "数据来源"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000000254",
+              "returnName": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "classCode": "007101",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "QUARTER",
+              "defineType": 0,
+              "isLoopN": false,
+              "fixedParamValue": "type=1,ItemsCode=49",
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "BUYFILASSETPAY",
+              "returnSourceName": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "graph": "1",
+              "unit": "1",
+              "tableType": "1",
+              "unitName": "元",
+              "unitDesc": "101:元:元"
+            },
+            "entityCodes": [
+              "688981.SH"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000000254",
+                "returnName": "购建固定资产、无形资产和其他长期资产支付的现金",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "type=1,ItemsCode=49",
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "BUYFILASSETPAY",
+                "returnSourceName": "购建固定资产、无形资产和其他长期资产支付的现金",
+                "graph": "1",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "元",
+                "unitDesc": "101:元:元"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000000254"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(688981.SH)的购建固定资产、无形资产和其他长期资产支付的现金",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=688981.SH&indId=100000000000254|100:2025-06-30|115:1,100000000000254|100:2025-09-30|115:1,100000000000254|100:2025-12-31|115:1",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2025年报": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "10004588.FXR",
+            "entityName": "2025年报",
+            "table": {
+              "100000000009772": [
+                "599.5亿元"
+              ],
+              "headName": [
+                "中芯国际集成电路制造有限公司"
+              ]
+            },
+            "rawTable": {
+              "100000000009772": [
+                "59950583000"
+              ],
+              "headName": [
+                "中芯国际集成电路制造有限公司"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000009772": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "headNameSub": "数据来源",
+              "securityName": "股票名称"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000009772",
+              "returnName": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "classCode": "007101",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-12-30 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "QUARTER",
+              "defineType": 0,
+              "isLoopN": false,
+              "fixedParamValue": "type=1,ItemsCode=49",
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "BUYFILASSETPAY",
+              "returnSourceName": "购建固定资产、无形资产和其他长期资产支付的现金",
+              "graph": "1",
+              "unit": "1",
+              "tableType": "1",
+              "unitName": "元",
+              "unitDesc": "101:元:元"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000009772",
+                "returnName": "购建固定资产、无形资产和其他长期资产支付的现金",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-12-30 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "type=1,ItemsCode=49",
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "BUYFILASSETPAY",
+                "returnSourceName": "购建固定资产、无形资产和其他长期资产支付的现金",
+                "graph": "1",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "元",
+                "unitDesc": "101:元:元"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000009772"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际集成电路制造有限公司的购建固定资产、无形资产和其他长期资产支付的现金",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftEntityTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=Issuer&code=10004588.FXR&indId=100000000009772|100:2025-12-31|115:1",
+                "typeName": "发行人浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "10004588FXR",
+              "entityType": "FXR",
+              "entityTypeCode": "FXR",
+              "entityTypeName": "发行人",
+              "classCode": "016001",
+              "className": "股票发行人",
+              "fullName": "中芯国际集成电路制造有限公司",
+              "shortName": "中芯国际",
+              "secuCode": "",
+              "correct": false,
+              "securityName": "中芯国际集成电路制造有限公司",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "10004588FXR",
+                "entityType": "FXR",
+                "entityTypeCode": "FXR",
+                "entityTypeName": "发行人",
+                "classCode": "016001",
+                "className": "股票发行人",
+                "fullName": "中芯国际集成电路制造有限公司",
+                "shortName": "中芯国际",
+                "secuCode": "",
+                "correct": false,
+                "securityName": "中芯国际集成电路制造有限公司",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2025年报": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": true,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "688981.SH",
+            "entityName": "业务名称",
+            "table": {
+              "headName": [
+                "时间区间",
+                "业务数量"
+              ],
+              "0": [
+                "12个月",
+                "1596016.00"
+              ],
+              "1": [
+                "12个月",
+                "10126337.00"
+              ],
+              "2": [
+                "12个月",
+                "9696824.00"
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "时间区间",
+                "业务数量"
+              ],
+              "0": [
+                "12个月",
+                "1596016"
+              ],
+              "1": [
+                "12个月",
+                "10126337"
+              ],
+              "2": [
+                "12个月",
+                "9696824"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "0": "晶圆库存量(片)",
+              "1": "晶圆生产量(片)",
+              "2": "晶圆销售量(片)"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_DMSK_BUSINESS_DATA",
+              "returnName": "业务数据",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "BUSINESS_NAME,DATE_UNIT,NUM,END_DATE",
+              "returnSourceName": "业务名称,时间区间,业务数量,结束日期",
+              "headName": "BUSINESS_NAME",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_DMSK_BUSINESS_DATA",
+                "returnName": "业务数据",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "BUSINESS_NAME,DATE_UNIT,NUM,END_DATE",
+                "returnSourceName": "业务名称,时间区间,业务数量,结束日期",
+                "headName": "BUSINESS_NAME",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(688981.SH)业务数据(2025-12-31)",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "0",
+              "1",
+              "2"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "https://choicewzp2.eastmoney.com/stock/cn/f9/index.html#/businessData?securitycode=688981.SH",
+                "typeName": "F9深度资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F9",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "688981.SH",
+            "frontendTitle": "业务数据(2025-12-31)",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "688981.SH",
+            "entityName": "业务名称",
+            "table": {
+              "headName": [
+                "时间区间",
+                "业务数量"
+              ],
+              "0": [
+                "3个月",
+                "2499465.00"
+              ],
+              "1": [
+                "3个月",
+                "1022750.00"
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "时间区间",
+                "业务数量"
+              ],
+              "0": [
+                "3个月",
+                "2499465"
+              ],
+              "1": [
+                "3个月",
+                "1022750"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "0": "销售晶圆数量(片)",
+              "1": "月产能(片)"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_DMSK_BUSINESS_DATA",
+              "returnName": "业务数据",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "BUSINESS_NAME,DATE_UNIT,NUM,END_DATE",
+              "returnSourceName": "业务名称,时间区间,业务数量,结束日期",
+              "headName": "BUSINESS_NAME",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_DMSK_BUSINESS_DATA",
+                "returnName": "业务数据",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "BUSINESS_NAME,DATE_UNIT,NUM,END_DATE",
+                "returnSourceName": "业务名称,时间区间,业务数量,结束日期",
+                "headName": "BUSINESS_NAME",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(688981.SH)业务数据(2025-09-30)",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "0",
+              "1"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "https://choicewzp2.eastmoney.com/stock/cn/f9/index.html#/businessData?securitycode=688981.SH",
+                "typeName": "F9深度资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F9",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "688981.SH",
+            "frontendTitle": "业务数据(2025-09-30)",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "业务名称",
+            "table": {
+              "headName": [
+                "数值类型",
+                "数值",
+                "单位"
+              ],
+              "0": [
+                "期末值",
+                "9700000",
+                "片"
+              ],
+              "1": [
+                "期末值",
+                "93.5",
+                "%"
+              ],
+              "2": [
+                "期末值",
+                "1059000",
+                "片"
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "数值类型",
+                "数值",
+                "单位"
+              ],
+              "0": [
+                "期末值",
+                "9700000",
+                "片"
+              ],
+              "1": [
+                "期末值",
+                "93.5",
+                "%"
+              ],
+              "2": [
+                "期末值",
+                "1059000",
+                "片"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "0": "中芯国际:晶圆出货量:8英寸晶圆",
+              "1": "中芯国际:利用率:8英寸晶圆",
+              "2": "中芯国际:月度产能:8英寸晶圆"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_F9_HKUS_BUSINESS_HK",
+              "returnName": "业务数据",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-09-15 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "SECUCODE,BUSINESS_NAME,NUM_TYPE,NUM_TYPE_CODE,NUM,UNIT,END_DATE,NOTICE_DATE,CATEGORY,CATEGORY_CODE,SOURCE",
+              "returnSourceName": "证券代码(带后缀),业务名称,数值类型,数值类型编码,数值,单位,截止日期,公告日期,数据类别,数据类别代码,数据来源",
+              "headName": "BUSINESS_NAME",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_F9_HKUS_BUSINESS_HK",
+                "returnName": "业务数据",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-09-15 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "SECUCODE,BUSINESS_NAME,NUM_TYPE,NUM_TYPE_CODE,NUM,UNIT,END_DATE,NOTICE_DATE,CATEGORY,CATEGORY_CODE,SOURCE",
+                "returnSourceName": "证券代码(带后缀),业务名称,数值类型,数值类型编码,数值,单位,截止日期,公告日期,数据类别,数据类别代码,数据来源",
+                "headName": "BUSINESS_NAME",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(00981.HK)业务数据(2025-12-31)",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "0",
+              "1",
+              "2"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "https://choicewh2.eastmoney.com/stock/hk/f9/index.html#/businessData?securitycode=00981.HK&scrollTo=0",
+                "typeName": "F9深度资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F9",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": true,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": true,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "00981.HK",
+            "frontendTitle": "业务数据(2025-12-31)",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "业务名称",
+            "table": {
+              "headName": [
+                "数值类型",
+                "数值",
+                "单位"
+              ],
+              "0": [
+                "期末值",
+                "2499465",
+                "片"
+              ],
+              "1": [
+                "期末值",
+                "95.8",
+                "%"
+              ],
+              "2": [
+                "期末值",
+                "1022750",
+                "片"
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "数值类型",
+                "数值",
+                "单位"
+              ],
+              "0": [
+                "期末值",
+                "2499465",
+                "片"
+              ],
+              "1": [
+                "期末值",
+                "95.8",
+                "%"
+              ],
+              "2": [
+                "期末值",
+                "1022750",
+                "片"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "0": "中芯国际:晶圆出货量:8英寸晶圆",
+              "1": "中芯国际:利用率:8英寸晶圆",
+              "2": "中芯国际:月度产能:8英寸晶圆"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_F9_HKUS_BUSINESS_HK",
+              "returnName": "业务数据",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-09-15 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "SECUCODE,BUSINESS_NAME,NUM_TYPE,NUM_TYPE_CODE,NUM,UNIT,END_DATE,NOTICE_DATE,CATEGORY,CATEGORY_CODE,SOURCE",
+              "returnSourceName": "证券代码(带后缀),业务名称,数值类型,数值类型编码,数值,单位,截止日期,公告日期,数据类别,数据类别代码,数据来源",
+              "headName": "BUSINESS_NAME",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_F9_HKUS_BUSINESS_HK",
+                "returnName": "业务数据",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-09-15 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "SECUCODE,BUSINESS_NAME,NUM_TYPE,NUM_TYPE_CODE,NUM,UNIT,END_DATE,NOTICE_DATE,CATEGORY,CATEGORY_CODE,SOURCE",
+                "returnSourceName": "证券代码(带后缀),业务名称,数值类型,数值类型编码,数值,单位,截止日期,公告日期,数据类别,数据类别代码,数据来源",
+                "headName": "BUSINESS_NAME",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(00981.HK)业务数据(2025-09-30)",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "0",
+              "1",
+              "2"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "https://choicewh2.eastmoney.com/stock/hk/f9/index.html#/businessData?securitycode=00981.HK&scrollTo=0",
+                "typeName": "F9深度资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F9",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": true,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": true,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "00981.HK",
+            "frontendTitle": "业务数据(2025-09-30)",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          }
+        ],
+        "condition": {
+          "search_data_task_0": [
+            "中芯国际",
+            "购建固定资产、无形资产和其他长期资产支付的现金业务数据",
+            "2026-04-02至2026-04-02"
+          ],
+          "search_data_task_1": [
+            "中芯国际中芯国际集成电路制造有限公司",
+            "业务数据购建固定资产、无形资产和其他长期资产支付的现金",
+            "2026-04-02至2026-04-02"
+          ]
+        },
+        "entityTagDTOList": [
+          {
+            "entityId": "10004588FXR",
+            "entityType": "FXR",
+            "entityTypeCode": "FXR",
+            "entityTypeName": "发行人",
+            "classCode": "016001",
+            "className": "股票发行人",
+            "fullName": "中芯国际集成电路制造有限公司",
+            "shortName": "中芯国际",
+            "secuCode": "",
+            "correct": false,
+            "securityName": "中芯国际集成电路制造有限公司",
+            "hasKLine": false,
+            "valuation": false
+          },
+          {
+            "entityId": "1002259322",
+            "entityType": "SEC",
+            "entityTypeCode": "058001001",
+            "entityTypeName": "A股",
+            "classCode": "002001",
+            "className": "沪深京股票",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "688981",
+            "market": "1",
+            "marketChar": ".SH",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          },
+          {
+            "entityId": "1000144999",
+            "entityType": "SEC",
+            "entityTypeCode": "058001003003",
+            "entityTypeName": "红筹股",
+            "classCode": "002003",
+            "className": "港股",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "00981",
+            "market": "116",
+            "marketChar": ".HK",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          }
+        ]
+      },
+      "entityName": null,
+      "message": null,
+      "tableTruncated": false
+    },
+    "stack": null
+  },
+  "requestId": "a5e09868419340b3af58085c507aa4da"
+}

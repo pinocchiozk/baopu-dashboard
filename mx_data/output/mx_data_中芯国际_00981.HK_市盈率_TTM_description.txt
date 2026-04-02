@@ -1,0 +1,8 @@
+金融数据查询结果说明
+========================================
+查询内容: 中芯国际 00981.HK 市盈率 TTM
+数据文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际_00981.HK_市盈率_TTM.xlsx
+描述文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际_00981.HK_市盈率_TTM_description.txt
+数据行数: 2
+表数量: 2
+Sheet 列表: 中芯国际(00981.HK)等当前的市盈率(TTM), 中芯国际(688981.SH)的市盈率(TTM)

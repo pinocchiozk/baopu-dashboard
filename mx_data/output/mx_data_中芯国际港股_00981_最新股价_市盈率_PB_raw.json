@@ -1,0 +1,863 @@
+{
+  "success": true,
+  "status": 0,
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "requestId": null,
+    "message": "OK",
+    "status": 0,
+    "code": 0,
+    "data": {
+      "protocolType": "SEARCH_DATA",
+      "id": "312982d8-f019-4cd3-a873-2f7cd1ed15e1",
+      "refSeq": null,
+      "keyEntityList": null,
+      "searchDataResultDTO": {
+        "questionId": "50d4772b-e34d-487c-8274-3471104caf75",
+        "dataTableDTOList": [
+          {
+            "code": "00981.HK",
+            "entityName": "中芯国际(00981.HK)",
+            "table": {
+              "100000000047165": [
+                "2.535",
+                "2.643",
+                "2.69"
+              ],
+              "headName": [
+                "2025",
+                "2024",
+                "2023"
+              ]
+            },
+            "rawTable": {
+              "100000000047165": [
+                "2.534593332645455",
+                "2.642732999486237",
+                "2.68970711256611"
+              ],
+              "headName": [
+                "2025",
+                "2024",
+                "2023"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000047165": "市净率(PB)(2026-04-01)",
+              "headNameSub": "数据来源"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000047165",
+              "returnName": "市净率(PB)",
+              "classCode": "007101",
+              "checkedRelatedIndicators": false,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": true,
+              "dateGranularity": "YEAR",
+              "defineType": 0,
+              "isLoopN": false,
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "PB",
+              "returnSourceName": "市净率(PB)",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1"
+            },
+            "entityCodes": [
+              "00981.HK"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000047165",
+                "returnName": "市净率(PB)",
+                "classCode": "007101",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "YEAR",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "PB",
+                "returnSourceName": "市净率(PB)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000047165"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(00981.HK)的市净率(PB)(2026-04-01)",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=00981.HK&indId=100000000047165|103:2023|121:2026-04-01,100000000047165|103:2024|121:2026-04-01,100000000047165|103:2025|121:2026-04-01",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2025": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "2026-04-02 14:56",
+            "hkDelay": false,
+            "table": {
+              "f2": [
+                "50.850",
+                "93.23"
+              ],
+              "f115": [
+                "76.31",
+                "148"
+              ],
+              "headName": [
+                "中芯国际(00981.HK)",
+                "中芯国际(688981.SH)"
+              ]
+            },
+            "rawTable": {
+              "f2": [
+                "50.850",
+                "93.23"
+              ],
+              "f115": [
+                "76.310",
+                "147.99"
+              ],
+              "headName": [
+                "中芯国际(00981.HK)",
+                "中芯国际(688981.SH)"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "f2": "最新价",
+              "headNameSub": "数据来源",
+              "f115": "市盈率(TTM)",
+              "securityName": "股票名称"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "ZXJ_f2_3",
+              "returnName": "最新价",
+              "classCode": "007001",
+              "checkedRelatedIndicators": false,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": true,
+              "dateGranularity": "DAY",
+              "defineType": 0,
+              "isLoopN": false,
+              "apiCode": "3",
+              "isGroup": false,
+              "returnSourceCode": "f2",
+              "returnSourceName": "最新价",
+              "graph": "2",
+              "unit": "0",
+              "tableType": "2"
+            },
+            "entityCodes": [
+              "00981.HK",
+              "688981.SH"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "ZXJ_f2_3",
+                "returnName": "最新价",
+                "classCode": "007001",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "apiCode": "3",
+                "isGroup": false,
+                "returnSourceCode": "f2",
+                "returnSourceName": "最新价",
+                "graph": "2",
+                "unit": "0",
+                "tableType": "2"
+              },
+              {
+                "returnCode": "SYLTTM_f115_3",
+                "returnName": "市盈率(TTM)",
+                "classCode": "007001",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "apiCode": "3",
+                "isGroup": false,
+                "returnSourceCode": "f115",
+                "returnSourceName": "市盈率(TTM)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "2"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "f2",
+              "f115"
+            ],
+            "tipFlags": [
+              "0"
+            ],
+            "dataType": "行情数据",
+            "title": "中芯国际(00981.HK)等当前的最新价、市盈率(TTM)",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftEntityTop",
+            "orderCol": {},
+            "jumpUrlList": [],
+            "dataTypeEnum": "HQ",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": true,
+                "valuation": false
+              },
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": true,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2026-04-02 14:56": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "2026-04-01",
+            "table": {
+              "100000000017985": [
+                "52.85",
+                "96.33"
+              ],
+              "100000000018235": [
+                "-",
+                "5.11"
+              ],
+              "100000000018227": [
+                "-",
+                "152.9"
+              ],
+              "headName": [
+                "中芯国际(00981.HK)",
+                "中芯国际(688981.SH)"
+              ]
+            },
+            "rawTable": {
+              "100000000017985": [
+                "52.85",
+                "96.33"
+              ],
+              "100000000018235": [
+                "-",
+                "5.1104689"
+              ],
+              "100000000018227": [
+                "-",
+                "152.91032562"
+              ],
+              "headName": [
+                "中芯国际(00981.HK)",
+                "中芯国际(688981.SH)"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000017985": "收盘价",
+              "headNameSub": "数据来源",
+              "securityName": "股票名称",
+              "100000000018235": "市净率(PB)",
+              "100000000018227": "市盈率(TTM)"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000017985",
+              "returnName": "收盘价",
+              "classCode": "007102",
+              "checkedRelatedIndicators": false,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": true,
+              "dateGranularity": "DAY",
+              "defineType": 0,
+              "isLoopN": false,
+              "fixedParamValue": "Period=1,AdjustFlag=1,CurType=4",
+              "quantType": "2",
+              "isGroup": false,
+              "returnSourceCode": "CLOSE",
+              "returnSourceName": "收盘价",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1"
+            },
+            "entityCodes": [
+              "00981.HK",
+              "688981.SH"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000018227",
+                "returnName": "市盈率(TTM)",
+                "classCode": "007102",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "Period=1",
+                "quantType": "2",
+                "isGroup": false,
+                "returnSourceCode": "PETTM",
+                "returnSourceName": "市盈率(TTM)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000017985",
+                "returnName": "收盘价",
+                "classCode": "007102",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "Period=1,AdjustFlag=1,CurType=4",
+                "quantType": "2",
+                "isGroup": false,
+                "returnSourceCode": "CLOSE",
+                "returnSourceName": "收盘价",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000017975",
+                "returnName": "收盘价",
+                "classCode": "007102",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "Period=1,AdjustFlag=1,CurType=2",
+                "quantType": "2",
+                "isGroup": false,
+                "returnSourceCode": "CLOSE",
+                "returnSourceName": "收盘价",
+                "graph": "2",
+                "unit": "0",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000018235",
+                "returnName": "市净率(PB)",
+                "classCode": "007102",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "Type=8,Period=1",
+                "quantType": "2",
+                "isGroup": false,
+                "returnSourceCode": "PB",
+                "returnSourceName": "市净率(PB)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000017985",
+              "100000000018235",
+              "100000000018227"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(00981.HK)等的收盘价、市净率(PB)等",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftEntityTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=00981.HK,688981.SH&indId=100000000012786,100000000004743,100000000001098,100000000004742",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": true,
+                "valuation": false
+              },
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": true,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2026-04-01": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "中芯国际(00981.HK)",
+            "table": {
+              "100000000047160": [
+                "79.31",
+                "76.09",
+                "77.14",
+                "78.79",
+                "79.76"
+              ],
+              "headName": [
+                "2026-04-01",
+                "2026-03-31",
+                "2026-03-30",
+                "2026-03-27",
+                "2026-03-26"
+              ]
+            },
+            "rawTable": {
+              "100000000047160": [
+                "79.31453202",
+                "76.08792381",
+                "77.13844741",
+                "78.78927022",
+                "79.76475642"
+              ],
+              "headName": [
+                "2026-04-01",
+                "2026-03-31",
+                "2026-03-30",
+                "2026-03-27",
+                "2026-03-26"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000047160": "市盈率(PE,TTM)",
+              "headNameSub": "数据来源"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000047160",
+              "returnName": "市盈率(PE,TTM)",
+              "classCode": "007101",
+              "checkedRelatedIndicators": false,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": true,
+              "dateGranularity": "DAY",
+              "defineType": 0,
+              "isLoopN": false,
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "PETTM",
+              "returnSourceName": "市盈率(PE,TTM)",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1"
+            },
+            "entityCodes": [
+              "00981.HK"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000047160",
+                "returnName": "市盈率(PE,TTM)",
+                "classCode": "007101",
+                "checkedRelatedIndicators": false,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": true,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "PETTM",
+                "returnSourceName": "市盈率(PE,TTM)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000047160"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(00981.HK)的市盈率(PE,TTM)",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=00981.HK&indId=100000000047160|121:2026-03-26,100000000047160|121:2026-03-27,100000000047160|121:2026-03-30,100000000047160|121:2026-03-31,100000000047160|121:2026-04-01",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2026-04-01": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          }
+        ],
+        "condition": {
+          "search_data_task_1": [
+            "中芯国际",
+            "市净率(PB)最新价收盘价市盈率(TTM)市盈率(PE,TTM)",
+            "2026-04-02至2026-04-02"
+          ],
+          "search_data_task_0": [
+            "中芯国际",
+            "市净率(PB)最新价收盘价市盈率(TTM)",
+            "2026-04-02至2026-04-02"
+          ]
+        },
+        "entityTagDTOList": [
+          {
+            "entityId": "1002259322",
+            "entityType": "SEC",
+            "entityTypeCode": "058001001",
+            "entityTypeName": "A股",
+            "classCode": "002001",
+            "className": "沪深京股票",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "688981",
+            "market": "1",
+            "marketChar": ".SH",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          },
+          {
+            "entityId": "1000144999",
+            "entityType": "SEC",
+            "entityTypeCode": "058001003003",
+            "entityTypeName": "红筹股",
+            "classCode": "002003",
+            "className": "港股",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "00981",
+            "market": "116",
+            "marketChar": ".HK",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          }
+        ]
+      },
+      "entityName": null,
+      "message": null,
+      "tableTruncated": false
+    },
+    "stack": null
+  },
+  "requestId": "6d16c564b9bd4956aa88421a63787300"
+}

@@ -1,0 +1,206 @@
+{
+  "success": true,
+  "status": 0,
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "requestId": null,
+    "message": "OK",
+    "status": 0,
+    "code": 0,
+    "data": {
+      "protocolType": "SEARCH_DATA",
+      "id": "0c0525bb-c768-4812-a851-c6c9dce7155c",
+      "refSeq": null,
+      "keyEntityList": null,
+      "searchDataResultDTO": {
+        "questionId": "cf79b0dd-f79e-41a5-8c6b-ef748a078a32",
+        "dataTableDTOList": [
+          {
+            "code": "001071",
+            "entityName": "全部A股",
+            "table": {
+              "100000000046094": [
+                "1.858万亿元"
+              ],
+              "headName": [
+                "2026-04-02"
+              ]
+            },
+            "rawTable": {
+              "100000000046094": [
+                "1857789952416.93"
+              ],
+              "headName": [
+                "2026-04-02"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000046094": "日均成交额",
+              "headNameSub": "数据来源"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000046094",
+              "returnName": "日均成交额",
+              "classCode": "007109",
+              "checkedRelatedIndicators": true,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "DAY",
+              "defineType": 0,
+              "isLoopN": false,
+              "fixedParamValue": "CurType=2,IsHistory=0",
+              "quantType": "9",
+              "isGroup": false,
+              "returnSourceCode": "QJRJCJE",
+              "returnSourceName": "区间日均成交额",
+              "graph": "0",
+              "unit": "1",
+              "tableType": "1",
+              "unitName": "元",
+              "unitDesc": "101:元:元"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000046094",
+                "returnName": "日均成交额",
+                "classCode": "007109",
+                "checkedRelatedIndicators": true,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "fixedParamValue": "CurType=2,IsHistory=0",
+                "quantType": "9",
+                "isGroup": false,
+                "returnSourceCode": "QJRJCJE",
+                "returnSourceName": "区间日均成交额",
+                "graph": "0",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "元",
+                "unitDesc": "101:元:元"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000046094"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "全部A股的日均成交额",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=BLOCK&code=001071&indId=100000000046094|102:2026-04-02|453:2|283:2026-04-02",
+                "typeName": "板块数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "001071",
+              "entityType": "BLOCK",
+              "entityTypeCode": "BLOCK",
+              "entityTypeName": "BLOCK",
+              "classCode": "005202",
+              "className": "市场类(沪深京)",
+              "publishCode": "",
+              "fullName": "全部A股",
+              "shortName": "",
+              "secuCode": "",
+              "market": "",
+              "correct": false,
+              "securityName": "全部A股",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "001071",
+                "entityType": "BLOCK",
+                "entityTypeCode": "BLOCK",
+                "entityTypeName": "BLOCK",
+                "classCode": "005202",
+                "className": "市场类(沪深京)",
+                "publishCode": "",
+                "fullName": "全部A股",
+                "shortName": "",
+                "secuCode": "",
+                "market": "",
+                "correct": false,
+                "securityName": "全部A股",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2026-04-02": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          }
+        ],
+        "condition": {
+          "search_data_task_0": [
+            "全部A股",
+            "日均成交额",
+            "2026-04-02至2026-04-02"
+          ]
+        },
+        "entityTagDTOList": [
+          {
+            "entityId": "001071",
+            "entityType": "BLOCK",
+            "entityTypeCode": "BLOCK",
+            "entityTypeName": "BLOCK",
+            "classCode": "005202",
+            "className": "市场类(沪深京)",
+            "publishCode": "",
+            "fullName": "全部A股",
+            "shortName": "",
+            "secuCode": "",
+            "market": "",
+            "correct": false,
+            "securityName": "全部A股",
+            "hasKLine": false,
+            "valuation": false
+          }
+        ]
+      },
+      "entityName": null,
+      "message": null,
+      "tableTruncated": false
+    },
+    "stack": null
+  },
+  "requestId": "7bd30d0bd31644babb2934e560053a90"
+}

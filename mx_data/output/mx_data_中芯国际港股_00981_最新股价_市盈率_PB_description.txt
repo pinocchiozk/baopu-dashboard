@@ -1,0 +1,8 @@
+金融数据查询结果说明
+========================================
+查询内容: 中芯国际港股 00981 最新股价 市盈率 PB
+数据文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际港股_00981_最新股价_市盈率_PB.xlsx
+描述文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际港股_00981_最新股价_市盈率_PB_description.txt
+数据行数: 12
+表数量: 4
+Sheet 列表: 中芯国际(00981.HK)的市净率(PB)(2026-04-01), 中芯国际(00981.HK)等当前的最新价、市盈率(TTM), 中芯国际(00981.HK)等的收盘价、市净率(PB)等, 中芯国际(00981.HK)的市盈率(PE,TTM)

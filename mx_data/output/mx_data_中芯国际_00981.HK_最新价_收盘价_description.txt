@@ -1,0 +1,8 @@
+金融数据查询结果说明
+========================================
+查询内容: 中芯国际 00981.HK 最新价 收盘价
+数据文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际_00981.HK_最新价_收盘价.xlsx
+描述文件路径: /Users/macclaw/.openclaw/workspace/mx_data/output/mx_data_中芯国际_00981.HK_最新价_收盘价_description.txt
+数据行数: 121
+表数量: 5
+Sheet 列表: 中芯国际(00981.HK)等当前的最新价, 中芯国际(00981.HK)的收盘价, 中芯国际(688981.SH)的收盘价, 中芯国际(00981.HK)的区间收盘价, 中芯国际(688981.SH)的收盘价

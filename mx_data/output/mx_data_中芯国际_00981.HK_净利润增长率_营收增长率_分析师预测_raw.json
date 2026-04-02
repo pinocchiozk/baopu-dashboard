@@ -1,0 +1,1162 @@
+{
+  "success": true,
+  "status": 0,
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "requestId": null,
+    "message": "OK",
+    "status": 0,
+    "code": 0,
+    "data": {
+      "protocolType": "SEARCH_DATA",
+      "id": "e2d88cfd-d55a-4afb-b4b2-929a8641c869",
+      "refSeq": null,
+      "keyEntityList": null,
+      "searchDataResultDTO": {
+        "questionId": "32fdd39f-0127-4e36-96d7-3be3ebfc81ba",
+        "dataTableDTOList": [
+          {
+            "code": "00981.HK",
+            "entityName": "中芯国际(00981.HK)",
+            "table": {
+              "100000000045961": [
+                "52.72%"
+              ],
+              "headName": [
+                "2026-04-02"
+              ]
+            },
+            "rawTable": {
+              "100000000045961": [
+                "52.72"
+              ],
+              "headName": [
+                "2026-04-02"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000045961": "一致预测归属母公司净利润同比增长率(FY1)",
+              "headNameSub": "数据来源"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000045961",
+              "returnName": "一致预测归属母公司净利润同比增长率(FY1)",
+              "classCode": "007101",
+              "checkedRelatedIndicators": true,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "DAY",
+              "defineType": 0,
+              "isLoopN": false,
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "NETPROFITYOYFY1",
+              "returnSourceName": "一致预测归属母公司净利润同比增长率(FY1)",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1",
+              "unitName": "%",
+              "unitDesc": "108:%:%"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000045961",
+                "returnName": "一致预测归属母公司净利润同比增长率(FY1)",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "DAY",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "NETPROFITYOYFY1",
+                "returnSourceName": "一致预测归属母公司净利润同比增长率(FY1)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "%",
+                "unitDesc": "108:%:%"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000045961"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(00981.HK)的一致预测归属母公司净利润同比增长率(FY1)",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=00981.HK&indId=100000000045961|119:2026-04-02",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2026-04-02": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "00981.HK",
+            "entityName": "中芯国际(00981.HK)(最新年结日12-31)",
+            "table": {
+              "100000000046877": [
+                "16.15",
+                "17.44",
+                "22.04"
+              ],
+              "100000000047140": [
+                "35.47",
+                "71.13",
+                "99.38"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "rawTable": {
+              "100000000046877": [
+                "16.150569849900002",
+                "17.439666542999998",
+                "22.0409579532"
+              ],
+              "100000000047140": [
+                "35.4730798788",
+                "71.13040712610001",
+                "99.3845879793"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000046877": "营业收入同比增长率(%)",
+              "headNameSub": "数据来源",
+              "100000000047140": "净利润同比增长率(%)"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000046877",
+              "returnName": "营业收入同比增长率(%)",
+              "classCode": "007101",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "QUARTER",
+              "defineType": 0,
+              "isLoopN": false,
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "YOYOR",
+              "returnSourceName": "营业收入同比增长率(%)",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1"
+            },
+            "entityCodes": [
+              "00981.HK"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000047140",
+                "returnName": "净利润同比增长率(%)",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "YOYPROFIT",
+                "returnSourceName": "净利润同比增长率(%)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000046877",
+                "returnName": "营业收入同比增长率(%)",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "YOYOR",
+                "returnSourceName": "营业收入同比增长率(%)",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000046877",
+              "100000000047140"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(00981.HK)(最新年结日12-31)的营业收入同比增长率(%)、净利润同比增长率(%)",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=00981.HK&indId=100000000046877|100:2025-06-30,100000000046877|100:2025-09-30,100000000046877|100:2025-12-31,100000000047140|100:2025-06-30,100000000047140|100:2025-09-30,100000000047140|100:2025-12-31",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1000144999",
+              "entityType": "SEC",
+              "entityTypeCode": "058001003003",
+              "entityTypeName": "红筹股",
+              "classCode": "002003",
+              "className": "港股",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "00981",
+              "market": "116",
+              "marketChar": ".HK",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1000144999",
+                "entityType": "SEC",
+                "entityTypeCode": "058001003003",
+                "entityTypeName": "红筹股",
+                "classCode": "002003",
+                "className": "港股",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "00981",
+                "market": "116",
+                "marketChar": ".HK",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2025年报": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "688981.SH",
+            "entityName": "中芯国际(688981.SH)",
+            "table": {
+              "100000000006667": [
+                "34.17%",
+                "78.5%",
+                "105.1%"
+              ],
+              "100000000027623": [
+                "24.93",
+                "71.35",
+                "45.1"
+              ],
+              "100000000004683": [
+                "16.49%",
+                "18.22%",
+                "23.14%"
+              ],
+              "100000000027622": [
+                "35.98",
+                "53.06",
+                "98.44"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "rawTable": {
+              "100000000006667": [
+                "34.166232716300",
+                "78.501883897500",
+                "105.102597646200"
+              ],
+              "100000000027623": [
+                "24.930008687501",
+                "71.345330521505",
+                "45.101307027616"
+              ],
+              "100000000004683": [
+                "16.485038559200",
+                "18.223326787400",
+                "23.140078669700"
+              ],
+              "100000000027622": [
+                "35.977835451837",
+                "53.055338824298",
+                "98.441079228775"
+              ],
+              "headName": [
+                "2025年报",
+                "2025三季报",
+                "2025中报"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "100000000006667": "净利润同比增长率",
+              "headNameSub": "数据来源",
+              "100000000027623": "净利润环比增长率",
+              "100000000004683": "营业收入同比增长率",
+              "100000000027622": "营业收入环比增长率"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "100000000006667",
+              "returnName": "净利润同比增长率",
+              "classCode": "007101",
+              "checkedRelatedIndicators": true,
+              "startDate": "2025-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "dateGranularity": "QUARTER",
+              "defineType": 0,
+              "isLoopN": false,
+              "quantType": "1",
+              "isGroup": false,
+              "returnSourceCode": "JLRTBZCL",
+              "returnSourceName": "净利润同比增长率",
+              "graph": "2",
+              "unit": "1",
+              "tableType": "1",
+              "unitName": "%",
+              "unitDesc": "10802:%:%"
+            },
+            "entityCodes": [
+              "688981.SH"
+            ],
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "100000000027622",
+                "returnName": "营业收入环比增长率",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "YYSRQOQ",
+                "returnSourceName": "营业收入环比增长率",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000006667",
+                "returnName": "净利润同比增长率",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "JLRTBZCL",
+                "returnSourceName": "净利润同比增长率",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "%",
+                "unitDesc": "10802:%:%"
+              },
+              {
+                "returnCode": "100000000027623",
+                "returnName": "净利润环比增长率",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "JLRQOQ",
+                "returnSourceName": "净利润环比增长率",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1"
+              },
+              {
+                "returnCode": "100000000004683",
+                "returnName": "营业收入同比增长率",
+                "classCode": "007101",
+                "checkedRelatedIndicators": true,
+                "startDate": "2025-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "dateGranularity": "QUARTER",
+                "defineType": 0,
+                "isLoopN": false,
+                "quantType": "1",
+                "isGroup": false,
+                "returnSourceCode": "YSTZ",
+                "returnSourceName": "营业收入同比增长率",
+                "graph": "2",
+                "unit": "1",
+                "tableType": "1",
+                "unitName": "%",
+                "unitDesc": "10802:%:%"
+              }
+            ],
+            "dataTableType": "NORM_TABLE",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "100000000006667",
+              "100000000027623",
+              "100000000004683",
+              "100000000027622"
+            ],
+            "tipFlags": [],
+            "dataType": "数据浏览器",
+            "title": "中芯国际(688981.SH)的净利润同比增长率、净利润环比增长率等",
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://stockdatacenter?type=browser&modType=STOCK&code=688981.SH&indId=100000000006667|100:2025-06-30,100000000006667|100:2025-09-30,100000000006667|100:2025-12-31,100000000027623|451:2025-06-30,100000000027623|451:2025-09-30,100000000027623|451:2025-12-31,100000000004683|100:2025-06-30,100000000004683|100:2025-09-30,100000000004683|100:2025-12-31,100000000027622|451:2025-06-30,100000000027622|451:2025-09-30,100000000027622|451:2025-12-31",
+                "typeName": "股票数据浏览器"
+              }
+            ],
+            "dataTypeEnum": "DATA_BROWSER",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {
+              "2025年报": false
+            },
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "",
+            "frontendEntityCode": "",
+            "frontendTitle": "",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "688981.SH",
+            "entityName": "时间段",
+            "table": {
+              "headName": [
+                "综合评级",
+                "评级买入家数",
+                "评级增持家数",
+                "评级中性家数",
+                "评级减持家数",
+                "评级卖出家数",
+                "评级机构总家数"
+              ],
+              "row0": [
+                "-",
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "row1": [
+                "买入",
+                5,
+                1,
+                0,
+                0,
+                0,
+                6
+              ],
+              "row2": [
+                "买入",
+                5,
+                1,
+                0,
+                0,
+                0,
+                6
+              ],
+              "row3": [
+                "买入",
+                7,
+                3,
+                0,
+                0,
+                0,
+                10
+              ],
+              "row4": [
+                "买入",
+                17,
+                3,
+                0,
+                0,
+                0,
+                20
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "综合评级",
+                "评级买入家数",
+                "评级增持家数",
+                "评级中性家数",
+                "评级减持家数",
+                "评级卖出家数",
+                "评级机构总家数"
+              ],
+              "row0": [
+                "-",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              "row1": [
+                "买入",
+                "5",
+                "1",
+                "0",
+                "0",
+                "0",
+                "6"
+              ],
+              "row2": [
+                "买入",
+                "5",
+                "1",
+                "0",
+                "0",
+                "0",
+                "6"
+              ],
+              "row3": [
+                "买入",
+                "7",
+                "3",
+                "0",
+                "0",
+                "0",
+                "10"
+              ],
+              "row4": [
+                "买入",
+                "17",
+                "3",
+                "0",
+                "0",
+                "0",
+                "20"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "headName": "时间段",
+              "row0": "1月内",
+              "row1": "2月内",
+              "row2": "3月内",
+              "row3": "6月内",
+              "row4": "1年内"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_HSF10_RES_ORGRATING",
+              "returnName": "机构评级统计",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "DATE_TYPE,COMPRE_RATING,RATING_BUY_NUM,RATING_ADD_NUM,RATING_NEUTRAL_NUM,RATING_REDUCE_NUM,RATING_SALE_NUM,RATING_ORG_NUM",
+              "returnSourceName": "时间段,综合评级,评级买入家数,评级增持家数,评级中性家数,评级减持家数,评级卖出家数,评级机构总家数",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_HSF10_RES_ORGRATING",
+                "returnName": "机构评级统计",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "DATE_TYPE,COMPRE_RATING,RATING_BUY_NUM,RATING_ADD_NUM,RATING_NEUTRAL_NUM,RATING_REDUCE_NUM,RATING_SALE_NUM,RATING_ORG_NUM",
+                "returnSourceName": "时间段,综合评级,评级买入家数,评级增持家数,评级中性家数,评级减持家数,评级卖出家数,评级机构总家数",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(688981.SH)机构评级统计",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "row0",
+              "row1",
+              "row2",
+              "row3",
+              "row4"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://quoteloader?view=quotestockview&securitycode=688981.SH&type=f10&weburlposition=#/ylyc/pjtj",
+                "typeName": "F10基本资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F10",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "688981.SH",
+            "frontendTitle": "机构评级统计",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          },
+          {
+            "code": "688981.SH",
+            "entityName": "",
+            "table": {
+              "headName": [
+                "2025A",
+                "2026E",
+                "2027E"
+              ],
+              "EPS": [
+                "0.63",
+                "0.76",
+                "0.9111"
+              ],
+              "EPS_RATIO": [
+                "36.29%",
+                "20.64%",
+                "19.88%"
+              ],
+              "PE": [
+                "152.9",
+                "123.9",
+                "104"
+              ],
+              "ROE": [
+                "3.40%",
+                "3.86%",
+                "4.44%"
+              ],
+              "PARENT_NETPROFIT": [
+                "50.41亿",
+                "62.2亿",
+                "74.1亿"
+              ],
+              "PARENT_NETPROFIT_RATIO": [
+                "36.29%",
+                "23.40%",
+                "19.13%"
+              ],
+              "TOTAL_OPERATE_INCOME": [
+                "673.2亿",
+                "788.4亿",
+                "915亿"
+              ],
+              "TOTAL_OPERATE_INCOME_RATIO": [
+                "16.49%",
+                "17.11%",
+                "16.06%"
+              ],
+              "OPERATE_PROFIT": [
+                "83.04亿",
+                "93.55亿",
+                "108.5亿"
+              ]
+            },
+            "rawTable": {
+              "headName": [
+                "2025A",
+                "2026E",
+                "2027E"
+              ],
+              "EPS": [
+                "0.629977077163",
+                "0.76",
+                "0.911111111111"
+              ],
+              "EPS_RATIO": [
+                "36.2852272376",
+                "20.639310151178",
+                "19.883040935673"
+              ],
+              "PE": [
+                "152.91032562",
+                "123.917666482417",
+                "104.020334591193"
+              ],
+              "ROE": [
+                "3.4",
+                "3.857777777778",
+                "4.44"
+              ],
+              "PARENT_NETPROFIT": [
+                "5040734000",
+                "6220100000",
+                "7409900000"
+              ],
+              "PARENT_NETPROFIT_RATIO": [
+                "36.285227237395",
+                "23.396711669372",
+                "19.128309834247"
+              ],
+              "TOTAL_OPERATE_INCOME": [
+                "67323192000",
+                "78841100000",
+                "91502700000"
+              ],
+              "TOTAL_OPERATE_INCOME_RATIO": [
+                "16.4850385592",
+                "17.108380719678",
+                "16.059644018158"
+              ],
+              "OPERATE_PROFIT": [
+                "8303809000",
+                "9354900000",
+                "10846500000"
+              ]
+            },
+            "truncateRawTable": {},
+            "nameMap": {
+              "headName": "中芯国际",
+              "EPS": "每股收益(元)",
+              "EPS_RATIO": "每股收益增长率",
+              "PE": "市盈率",
+              "ROE": "净资产收益率ROE",
+              "PARENT_NETPROFIT": "归属净利润(元)",
+              "PARENT_NETPROFIT_RATIO": "归属净利润增长率",
+              "TOTAL_OPERATE_INCOME": "营业收入(元)",
+              "TOTAL_OPERATE_INCOME_RATIO": "营业收入增长率",
+              "OPERATE_PROFIT": "营业利润(元)"
+            },
+            "headNameMap": {},
+            "field": {
+              "returnCode": "RPT_HSF10_RESPREDICT_STATISTICS",
+              "returnName": "机构预测统计",
+              "classCode": "007202",
+              "checkedRelatedIndicators": true,
+              "startDate": "2026-04-02 00:00:00",
+              "endDate": "2026-04-02 00:00:00",
+              "fuzzy": false,
+              "defineType": 0,
+              "isLoopN": false,
+              "isGroup": false,
+              "returnSourceCode": "YEAR,YEAR_MARK,EPS,EPS_RATIO,PE,ROE,PARENT_NETPROFIT,PARENT_NETPROFIT_RATIO,TOTAL_OPERATE_INCOME,TOTAL_OPERATE_INCOME_RATIO,OPERATE_PROFIT",
+              "returnSourceName": "年份,实际/预测,每股收益(元),每股收益增长率,市盈率,净资产收益率ROE,归属净利润(元),归属净利润增长率,营业收入(元),营业收入增长率,营业利润(元)",
+              "tableType": "10"
+            },
+            "macroAttributeExcelMap": {},
+            "fieldSet": [
+              {
+                "returnCode": "RPT_HSF10_RESPREDICT_STATISTICS",
+                "returnName": "机构预测统计",
+                "classCode": "007202",
+                "checkedRelatedIndicators": true,
+                "startDate": "2026-04-02 00:00:00",
+                "endDate": "2026-04-02 00:00:00",
+                "fuzzy": false,
+                "defineType": 0,
+                "isLoopN": false,
+                "isGroup": false,
+                "returnSourceCode": "YEAR,YEAR_MARK,EPS,EPS_RATIO,PE,ROE,PARENT_NETPROFIT,PARENT_NETPROFIT_RATIO,TOTAL_OPERATE_INCOME,TOTAL_OPERATE_INCOME_RATIO,OPERATE_PROFIT",
+                "returnSourceName": "年份,实际/预测,每股收益(元),每股收益增长率,市盈率,净资产收益率ROE,归属净利润(元),归属净利润增长率,营业收入(元),营业收入增长率,营业利润(元)",
+                "tableType": "10"
+              }
+            ],
+            "dataTableType": "F10_TABLE",
+            "inputTitle": "中芯国际(688981.SH)机构预测统计",
+            "rowInfo": {},
+            "colInfo": {},
+            "indicatorOrder": [
+              "EPS",
+              "EPS_RATIO",
+              "PE",
+              "ROE",
+              "PARENT_NETPROFIT",
+              "PARENT_NETPROFIT_RATIO",
+              "TOTAL_OPERATE_INCOME",
+              "TOTAL_OPERATE_INCOME_RATIO",
+              "OPERATE_PROFIT"
+            ],
+            "tipFlags": [],
+            "hasThumbnail": true,
+            "indicatorLimited": false,
+            "dataPositionEnum": "MetricLeftTimeTop",
+            "orderCol": {},
+            "jumpUrlList": [
+              {
+                "choiceUrl": "EM://quoteloader?view=quotestockview&securitycode=688981.SH&type=f10&weburlposition=#/ylyc/jgyc",
+                "typeName": "F10基本资料",
+                "securityName": "中芯国际"
+              }
+            ],
+            "dataTypeEnum": "F10",
+            "dateRuleSet": [],
+            "freqConvert": false,
+            "deleteInfo": [],
+            "macroCodeMap": {},
+            "entityTagDTO": {
+              "entityId": "1002259322",
+              "entityType": "SEC",
+              "entityTypeCode": "058001001",
+              "entityTypeName": "A股",
+              "classCode": "002001",
+              "className": "沪深京股票",
+              "publishCode": "",
+              "fullName": "中芯国际",
+              "shortName": "",
+              "secuCode": "688981",
+              "market": "1",
+              "marketChar": ".SH",
+              "correct": false,
+              "securityName": "中芯国际",
+              "hasKLine": false,
+              "valuation": false
+            },
+            "entityTagDTOList": [
+              {
+                "entityId": "1002259322",
+                "entityType": "SEC",
+                "entityTypeCode": "058001001",
+                "entityTypeName": "A股",
+                "classCode": "002001",
+                "className": "沪深京股票",
+                "publishCode": "",
+                "fullName": "中芯国际",
+                "shortName": "",
+                "secuCode": "688981",
+                "market": "1",
+                "marketChar": ".SH",
+                "correct": false,
+                "securityName": "中芯国际",
+                "hasKLine": false,
+                "valuation": false
+              }
+            ],
+            "indexTable": false,
+            "edbThirdData": false,
+            "dataUpdate": {},
+            "supportsTimeSeries": false,
+            "estimatedTokens": 0,
+            "summaryTips": {
+              "periodicalReport": null
+            },
+            "nestEntityListMap": {},
+            "excelTimeTruncate": false,
+            "frontendEntityName": "中芯国际",
+            "frontendEntityCode": "688981.SH",
+            "frontendTitle": "机构预测统计",
+            "frontendDesc": "",
+            "indicatorCount": 0,
+            "fieldParameterStr": "",
+            "tdayEnum": "NORMAL"
+          }
+        ],
+        "condition": {
+          "search_data_task_0": [
+            "中芯国际",
+            "一致预测归属母公司净利润同比增长率(FY1)营业收入同比增长率(%)净利润同比增长率(%)",
+            "2026-04-02至2026-04-02"
+          ],
+          "search_data_task_1": [
+            "中芯国际",
+            "净利润同比增长率机构评级统计净利润环比增长率营业收入同比增长率营业收入环比增长率机构预测统计",
+            "2026-04-02至2026-04-02"
+          ]
+        },
+        "entityTagDTOList": [
+          {
+            "entityId": "1002259322",
+            "entityType": "SEC",
+            "entityTypeCode": "058001001",
+            "entityTypeName": "A股",
+            "classCode": "002001",
+            "className": "沪深京股票",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "688981",
+            "market": "1",
+            "marketChar": ".SH",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          },
+          {
+            "entityId": "1000144999",
+            "entityType": "SEC",
+            "entityTypeCode": "058001003003",
+            "entityTypeName": "红筹股",
+            "classCode": "002003",
+            "className": "港股",
+            "publishCode": "",
+            "fullName": "中芯国际",
+            "shortName": "",
+            "secuCode": "00981",
+            "market": "116",
+            "marketChar": ".HK",
+            "correct": false,
+            "securityName": "中芯国际",
+            "hasKLine": false,
+            "valuation": false
+          }
+        ]
+      },
+      "entityName": null,
+      "message": null,
+      "tableTruncated": false
+    },
+    "stack": null
+  },
+  "requestId": "9e4c7ae1f53a4e1287806b63c4339db8"
+}
