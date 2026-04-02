@@ -76,17 +76,45 @@ send_feishu() {
         log "❌ 获取飞书 token 失败"
         return 1
     fi
-    local response
-    response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id" \
-      -H "Authorization: Bearer $token" \
-      -H "Content-Type: application/json" \
-      -d "{\"receive_id\":\"$FEISHU_USER\",\"msg_type\":\"text\",\"content\":\"{\\\"text\\\":\\\"$message\\\"}\"}" 2>/dev/null)
-    local http_code
-    http_code=$(echo "$response" | grep "HTTP_CODE:" | cut -d: -f2)
-    if [ "$http_code" = "200" ]; then
+    # 使用环境变量传递 message，避免 heredoc 转义问题
+    local result
+    result=$(FEISHU_TOKEN="$token" FEISHU_TARGET_USER="$FEISHU_USER" FEISHU_MSG="$message" python3 << 'PYEOF'
+import urllib.request
+import json
+import os
+
+token = os.environ.get('FEISHU_TOKEN')
+user = os.environ.get('FEISHU_TARGET_USER')
+message = os.environ.get('FEISHU_MSG')
+
+url = "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
+# 关键：content 必须是 JSON 字符串，不是对象！
+data = {
+    "receive_id": user,
+    "msg_type": "text",
+    "content": json.dumps({"text": message})
+}
+
+req = urllib.request.Request(url, method='POST')
+req.add_header('Authorization', f'Bearer {token}')
+req.add_header('Content-Type', 'application/json')
+req.data = json.dumps(data).encode('utf-8')
+
+try:
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        result = json.loads(resp.read().decode('utf-8'))
+        if result.get('code') == 0:
+            print("SUCCESS")
+        else:
+            print(f"FAIL:{result}")
+except Exception as e:
+    print(f"FAIL:{e}")
+PYEOF
+)
+    if [ "$result" = "SUCCESS" ]; then
         log "✅ 飞书推送成功"
     else
-        log "❌ 飞书推送失败 (HTTP $http_code): $response"
+        log "❌ 飞书推送失败：$result"
     fi
 }
 
@@ -96,18 +124,20 @@ if ! $ADB devices 2>/dev/null | grep -q "emulator-5554.*device"; then
     exit 1
 fi
 
-# 2. 启动开盘啦 App
+# 2. 强制重启开盘啦 App（确保页面状态重置）
+$ADB shell am force-stop com.aiyu.kaipanla 2>/dev/null
+sleep 2
 $ADB shell monkey -p com.aiyu.kaipanla -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
+sleep 8
+
+# 3. 点击市场情绪图标（首页第一排中间位置）
+$ADB shell input tap 440 252
 sleep 5
 
-# 3. 点击市场情绪图标
-$ADB shell input tap 440 252
+# 4. 等待页面加载并下滑刷新（确保情绪分数显示）
+# 先下滑刷新，再等待数据加载
+$ADB shell input swipe 500 300 500 800
 sleep 3
-
-# 4. 下滑查看完整数据（从顶部滑到底部，显示情绪分数）
-# 情绪分数在页面顶部，需要从上往下滑才能看到完整数据
-$ADB shell input swipe 500 400 500 1600
-sleep 2
 
 # 5. 截图
 $ADB shell screencap -p > "$SCREENSHOT"
