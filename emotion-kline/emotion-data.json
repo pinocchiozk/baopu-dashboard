@@ -31,8 +31,16 @@
       "close": 31,
       "high": 60,
       "low": 25
+    },
+    {
+      "date": "2026-04-03",
+      "label": "4 月 3 日",
+      "open": 52,
+      "close": 32,
+      "high": 52,
+      "low": 32
     }
   ],
-  "lastUpdate": "2026-04-02 15:00:00",
+  "lastUpdate": "2026-04-04 09:52:00",
   "marketStatus": "closed"
 }
