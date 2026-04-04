@@ -55,3 +55,29 @@
 - 2026-03-29 业绩线之存储 #存储 #业绩线
 
 **Git 仓库：** 所有文档已提交到 git，commit history 可查
+
+---
+
+## 开盘啦市场情绪采集（2026-04-04 更新）
+
+**APP**：开盘啦（com.aiyu.kaipanla）
+**模拟器**：MuMu Player（端口 16384 → 16416）
+**分辨率**：1440x2560
+
+### 坐标（已验证）
+| 操作 | 坐标 | 备注 |
+|------|------|------|
+| 点击市场情绪图标 | (350, 220) | 首页第二行第一列，火焰图标 |
+| 返回首页 | KEYCODE_BACK | - |
+
+### 脚本路径
+- `scripts/sentiment_monitor.sh` - 主采集脚本（周末/非交易时段自动跳过）
+- `scripts/sentiment_ocr_service.py` - OCR 识别服务
+
+### 数据输出
+- CSV：`/tmp/kaipanla/sentiment_data.csv`
+- 日K：`/tmp/kaipanla/sentiment_daily_k.csv`
+
+### 推送阈值
+- 🧊 ≤25分：冰点，买点信号
+- 🔥 ≥75分：过热，风险信号
