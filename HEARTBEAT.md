@@ -1,24 +1,14 @@
 # HEARTBEAT.md - 定时检查任务
 
-## 📊 A 股市场情绪监控（交易时段）
+## 📊 A股市场情绪监控（交易时段）
 
-**执行时间：** 交易日 9:15-11:30、13:00-15:00，每 5 分钟检查一次（中午休市 11:30-13:00 不采集）
-
-**采集时间点：**
-- 9:15（竞价开盘）
-- 9:20、9:25、9:30、9:35、9:40、9:45、9:50、9:55、10:00、10:05、10:10、10:15、10:20、10:25、10:30、10:35、10:40、10:45、10:50、10:55、11:00、11:05、11:10、11:15、11:20、11:25、11:30（上午）
-- 13:00、13:05、13:10、13:15、13:20、13:25、13:30、13:35、13:40、13:45、13:50、13:55、14:00、14:05、14:10、14:15、14:20、14:25、14:30、14:35、14:40、14:45、14:50、14:55、15:00（下午，15:00 为收盘采集）
+**执行时间：** 交易日 9:15-11:30、13:00-15:00，每 30 分钟检查一次
 
 **检查逻辑：**
 1. 当前时间是否在交易时段（9:15-15:00）？
 2. 距离上次采集是否≥30 分钟？
-3. 如果是 → 执行 `/Users/macclaw/.openclaw/workspace/scripts/sentiment_monitor.sh`
+3. 如果是 → 执行采集脚本
 4. 如果否 → 跳过
-
-**数据记录位置：**
-- CSV：`/tmp/kaipanla/sentiment_data.csv`
-- 日志：`/tmp/kaipanla/monitor.log`
-- 日 K 线：`/tmp/kaipanla/sentiment_daily_k.csv`
 
 **预警规则：**
 | 情绪分数 | 状态 | 操作 | 推送 |
@@ -27,14 +17,36 @@
 | 26-74 分 | 📊正常 | 持仓待涨 | ❌ |
 | ≥75 分 | 🔥过热 | 风险，减仓 | ✅ |
 
-**日 K 线生成：**
-- 每天 15:00 收盘后自动生成当日情绪 K 线
-- 开盘分=9:15，收盘分=15:00，最高/最低=盘中极值
-- 合并上午和下午数据，生成完整日 K 线记录
+---
+
+## 📋 开盘啦数据采集（核心任务）
+
+### 盘后全量采集（每日 15:05 执行）
+
+**执行脚本：** `/Users/macclaw/.openclaw/workspace/scripts/kaipanla_full_collection.sh`
+
+**采集数据源：**
+1. 市场情绪（350, 220）→ 情绪分数、连板梯队
+2. 涨停表现二板（343, 1146）→ 二连板个股
+3. 涨停表现更高 → 高位板个股
+4. 行情-板块（270, 1520）→ 板块强度排名
+5. 打板（336, 130）→ 涨跌停明细
+
+**数据落地：**
+- 截图：`/tmp/kaipanla/daily/{YYYYMMDD}/`
+- 数据库：`/workspace/database/kaipanla.db`
+- 报告：`/workspace/daily_{YYYYMMDD}/盘后报告.md`
+
+### 盘中监控采集（交易日 9:30-14:45，每 30 分钟）
+
+**采集内容：**
+- 市场情绪快照（情绪分数、涨停/跌停数）
+- 连板梯队变化
+- 板块强度排名
 
 ---
 
-## 📈 情绪 K 线图自动更新
+## 📈 情绪K线图自动更新
 
 **执行时间：** 每天 15:05（收盘后 5 分钟）
 
@@ -45,28 +57,77 @@
 2. 追加到 `/workspace/emotion-kline/emotion-data.json`
 3. 记录日志到 `/tmp/kaipanla/kline_update.log`
 
-**部署方式：** launchd (`com.kaipanla.kline.update`)
-
-**访问链接：** 需重新部署后更新
-
 ---
 
-## 📋 复盘啦数据采集（新增）
+## 📋 复盘啦数据采集
+
+**执行时间：** 每日 15:10 执行
 
 **执行脚本：** `/Users/macclaw/.openclaw/workspace/scripts/fupan_collector.sh`
 
-**功能：**
-1. 采集当日盘面亮点时间线数据
-2. 记录每只股票的异动时间、名称、板块、异动类型
-3. 存储到 `/tmp/kaipanla/fupan_data.csv`
+**入口坐标：** (440, 220) - 首页第一行第三个图标
 
 **数据价值：**
 - 当日市场热点追踪
 - 主力异动方向分析
 - 板块轮动节奏把握
 
-**入口坐标：** (440, 220) - 首页第一行第三个图标
+---
+
+## 🔧 自动化部署（Cron）
+
+```bash
+# 盘后全量采集 - 每日15:05
+5 15 * * 1-5 /Users/macclaw/.openclaw/workspace/scripts/kaipanla_full_collection.sh >> /tmp/kaipanla/daily_collection.log 2>&1
+
+# 数据导入数据库 - 每日15:15
+15 15 * * 1-5 cd /Users/macclaw/.openclaw/workspace/database && python import_data.py >> /tmp/kaipanla/import.log 2>&1
+```
 
 ---
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-# Add tasks below when you want the agent to check something periodically.
+
+## 📊 策略信号推送
+
+**执行时间：** 每日 15:30（盘后分析完成后）
+
+**执行内容：**
+1. 运行 `strategy/sentiment_strategy.py` 获取每日信号
+2. 生成策略信号报告
+3. 推送至飞书
+
+**信号内容：**
+- 情绪分数 + 连板率
+- 推荐仓位
+- 市场状态描述
+
+---
+
+## 📁 数据存储结构
+
+```
+/tmp/kaipanla/
+├── daily/
+│   └── {YYYYMMDD}/
+│       ├── 01_市场情绪_首页.png
+│       ├── 02_市场情绪_中段.png
+│       ├── 03_涨停表现_二板.png
+│       ├── 04_涨停表现_更高.png
+│       ├── 05_行情_板块.png
+│       └── 06_打板.png
+├── sentiment_data.csv
+├── sentiment_daily_k.csv
+└── monitor.log
+
+/workspace/
+├── database/
+│   └── kaipanla.db
+├── strategy/
+│   ├── sentiment_strategy.py
+│   └── backtest.py
+└── daily_{YYYYMMDD}/
+    └── 盘后报告_{YYYYMMDD}.md
+```
+
+---
+
+*最后更新：2026-04-04*
