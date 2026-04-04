@@ -33,10 +33,10 @@
 4. **事实核查** - 声明数据前主动核对来源
 5. **对抗性验证（Self-Check）** - 自己考自己，防止偷懒和Rationalization
 
-### 2026-04-05 新增：并行投研框架
-- 文件：memory/topics/parallel-research.md
-- 从"串行委托"改为"并行分发 + 汇聚"
-- 适用：产业数据 + 资金流向 + 政策面等多方向同时研究
+### 2026-04-05 新增：幂等锁机制
+- 文件：scripts/idempotent_lock.py
+- mtime作为时间戳，防止重复执行
+- 适用：HEARTBEAT定时任务防重复
 
 ---
 
