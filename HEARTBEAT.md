@@ -50,5 +50,23 @@
 **访问链接：** 需重新部署后更新
 
 ---
+
+## 📋 复盘啦数据采集（新增）
+
+**执行脚本：** `/Users/macclaw/.openclaw/workspace/scripts/fupan_collector.sh`
+
+**功能：**
+1. 采集当日盘面亮点时间线数据
+2. 记录每只股票的异动时间、名称、板块、异动类型
+3. 存储到 `/tmp/kaipanla/fupan_data.csv`
+
+**数据价值：**
+- 当日市场热点追踪
+- 主力异动方向分析
+- 板块轮动节奏把握
+
+**入口坐标：** (440, 220) - 首页第一行第三个图标
+
+---
 # Keep this file empty (or with only comments) to skip heartbeat API calls.
 # Add tasks below when you want the agent to check something periodically.
