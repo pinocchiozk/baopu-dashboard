@@ -157,25 +157,40 @@ OCR_RESPONSE=$(curl -s -X POST "$OCR_SERVICE_URL" \
   -d "{\"image_path\": \"$SCREENSHOT_PATH\"}" \
   2>/dev/null)
 
-# 解析 OCR 响应（只取情绪分数）
-SENTIMENT_SCORE=$(echo "$OCR_RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('data',{}).get('sentiment_score') or 'NULL')" 2>/dev/null)
+# 解析 OCR 响应（提取全部 8 项数据）
+OCR_DATA=$(echo "$OCR_RESPONSE" | python3 -c "
+import sys,json
+d=json.load(sys.stdin).get('data',{})
+print(f\"SENTIMENT_SCORE={d.get('sentiment_score') or 'NULL'}\")
+print(f\"LIMIT_UP={d.get('limit_up') or 'NULL'}\")
+print(f\"LIMIT_DOWN={d.get('limit_down') or 'NULL'}\")
+print(f\"UP_COUNT={d.get('up_count') or 'NULL'}\")
+print(f\"DOWN_COUNT={d.get('down_count') or 'NULL'}\")
+print(f\"SH_INDEX={d.get('sh_index') or 'NULL'}\")
+print(f\"SH_CHANGE={d.get('sh_change') or 'NULL'}\")
+print(f\"REAL_VOLUME={d.get('real_volume') or 'NULL'}\")
+print(f\"PREDICT_VOLUME={d.get('predict_volume') or 'NULL'}\")
+" 2>/dev/null)
 
-# 其他字段不再需要，设为 0
-LIMIT_UP=0
-LIMIT_DOWN=0
-UP_COUNT=0
-DOWN_COUNT=0
-SH_INDEX="0.00"
-SH_CHANGE="0.00"
-REAL_VOLUME="0.00"
-PREDICT_VOLUME="0.00"
+# 提取各字段值
+eval "$OCR_DATA"
 
-# 如果 OCR 失败，记录警告
+# 如果 OCR 失败，设为默认值
+SENTIMENT_SCORE=${SENTIMENT_SCORE:-0}
+LIMIT_UP=${LIMIT_UP:-0}
+LIMIT_DOWN=${LIMIT_DOWN:-0}
+UP_COUNT=${UP_COUNT:-0}
+DOWN_COUNT=${DOWN_COUNT:-0}
+SH_INDEX=${SH_INDEX:-0}
+SH_CHANGE=${SH_CHANGE:-0}
+REAL_VOLUME=${REAL_VOLUME:-0}
+PREDICT_VOLUME=${PREDICT_VOLUME:-0}
+
 if [ "$SENTIMENT_SCORE" = "NULL" ] || [ -z "$SENTIMENT_SCORE" ]; then
     log "⚠️ OCR 识别失败，情绪分数为 0"
     SENTIMENT_SCORE=0
 else
-    log "✅ OCR 识别成功：情绪$SENTIMENT_SCORE 分"
+    log "✅ OCR 识别成功：情绪$SENTIMENT_SCORE 分 | 涨停$LIMIT_UP | 跌停$LIMIT_DOWN | 上涨$UP_COUNT | 下跌$DOWN_COUNT"
 fi
 
 # 8. 记录到 CSV（只保留情绪分数）
@@ -195,13 +210,26 @@ echo "$TIMESTAMP,$SENTIMENT_SCORE,$STATUS" >> "$CSV_FILE"
 log "✅ 数据已记录：情绪$SENTIMENT_SCORE 分 | 状态:$STATUS"
 
 # 9. 条件推送（只在冰点或过热时推送）
+# 获取当前时间
+CURRENT_TIME=$(date '+%H:%M')
+
+# 格式化量能（亿 → 万亿）
+REAL_VOLUME_TW=${REAL_VOLUME:-0}
+PREDICT_VOLUME_TW=${PREDICT_VOLUME:-0}
+if [ "$REAL_VOLUME" -gt 10000 ]; then
+    REAL_VOLUME_TW=$(echo "scale=2; $REAL_VOLUME / 10000" | bc)
+fi
+if [ "$PREDICT_VOLUME" -gt 10000 ]; then
+    PREDICT_VOLUME_TW=$(echo "scale=2; $PREDICT_VOLUME / 10000" | bc)
+fi
+
 if [ "$SENTIMENT_SCORE" -le "$ICE_POINT" ]; then
-    MESSAGE="🧊 冰点预警！市场情绪$SENTIMENT_SCORE 分（≤$ICE_POINT 分）\n\n涨停：$LIMIT_UP 家\n跌停：$LIMIT_DOWN 家\n上涨：$UP_COUNT 家\n下跌：$DOWN_COUNT 家\n\n💡 冰点为买点，可关注龙头低吸机会"
+    MESSAGE="🧊 冰点预警！\n\n市场情绪 $SENTIMENT_SCORE 分（$CURRENT_TIME）\n涨停家数：$LIMIT_UP 家\n跌停家数：$LIMIT_DOWN 家\n上涨家数：$UP_COUNT 家\n下跌家数：$DOWN_COUNT 家\n上证指数：$SH_INDEX ($SH_CHANGE%)\n实际量能：${REAL_VOLUME_TW}万亿\n预测量能：${PREDICT_VOLUME_TW}万亿\n\n💡 冰点为买点，可关注龙头低吸机会"
     log "🧊 触发冰点预警，发送飞书推送"
     send_feishu "$MESSAGE"
     
 elif [ "$SENTIMENT_SCORE" -ge "$OVER_HEAT" ]; then
-    MESSAGE="🔥 过热预警！市场情绪$SENTIMENT_SCORE 分（≥$OVER_HEAT 分）\n\n涨停：$LIMIT_UP 家\n跌停：$LIMIT_DOWN 家\n上涨：$UP_COUNT 家\n下跌：$DOWN_COUNT 家\n\n💡 注意风险，考虑减仓"
+    MESSAGE="🔥 过热预警！\n\n市场情绪 $SENTIMENT_SCORE 分（$CURRENT_TIME）\n涨停家数：$LIMIT_UP 家\n跌停家数：$LIMIT_DOWN 家\n上涨家数：$UP_COUNT 家\n下跌家数：$DOWN_COUNT 家\n上证指数：$SH_INDEX ($SH_CHANGE%)\n实际量能：${REAL_VOLUME_TW}万亿\n预测量能：${PREDICT_VOLUME_TW}万亿\n\n💡 注意风险，考虑减仓"
     log "🔥 触发过热预警，发送飞书推送"
     send_feishu "$MESSAGE"
 fi

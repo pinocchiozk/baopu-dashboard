@@ -49,6 +49,83 @@ def extract_data_from_text(all_text):
         if match:
             data['sentiment_score'] = int(float(match.group(1)))
     
+    # 2. 涨停家数 - 搜索"涨停"或"实际涨停"
+    match = re.search(r'实际?涨停[：:]?\s*(\d+)\s*家', all_text)
+    if match:
+        data['limit_up'] = int(match.group(1))
+    # 备选：直接搜"涨停：XX家"或"涨停 XX"
+    if data['limit_up'] is None:
+        match = re.search(r'涨停[：:]?\s*(\d+)\s*家?', all_text)
+        if match:
+            data['limit_up'] = int(match.group(1))
+    
+    # 3. 跌停家数
+    match = re.search(r'实际?跌停[：:]?\s*(\d+)\s*家', all_text)
+    if match:
+        data['limit_down'] = int(match.group(1))
+    if data['limit_down'] is None:
+        match = re.search(r'跌停[：:]?\s*(\d+)\s*家?', all_text)
+        if match:
+            data['limit_down'] = int(match.group(1))
+    
+    # 4. 上涨家数 - "上涨总数"或"上涨：XXXX家"
+    match = re.search(r'上涨[^0-9]*(\d+)\s*家', all_text)
+    if match:
+        data['up_count'] = int(match.group(1))
+    
+    # 5. 下跌家数
+    match = re.search(r'下跌[^0-9]*(\d+)\s*家', all_text)
+    if match:
+        data['down_count'] = int(match.group(1))
+    
+    # 6. 上证指数 - "沪指"或"上证指数"后面的数字
+    match = re.search(r'沪指[^0-9]*([\d.]+)', all_text)
+    if match:
+        try:
+            data['sh_index'] = float(match.group(1))
+        except:
+            pass
+    # 备选：直接搜索数字
+    if data['sh_index'] is None:
+        match = re.search(r'上证指数[：:]?\s*([\d.]+)', all_text)
+        if match:
+            try:
+                data['sh_index'] = float(match.group(1))
+            except:
+                pass
+    
+    # 7. 上证指数涨跌幅 - 搜索"下跌"或"涨幅"后面的百分比或数字
+    match = re.search(r'[涨跌][^%]*(-?\d+(?:\.\d+)?)\s*%', all_text)
+    if match:
+        try:
+            data['sh_change'] = float(match.group(1))
+        except:
+            pass
+    
+    # 8. 实际量能 - "实际量能"或"市场量能"后面的数字（单位可能是亿或万）
+    match = re.search(r'实际量能[^0-9]*([\d.]+)\s*亿', all_text)
+    if match:
+        try:
+            data['real_volume'] = float(match.group(1))
+        except:
+            pass
+    # 备选：搜索"量能"后面的数字
+    if data['real_volume'] is None:
+        match = re.search(r'量能[^0-9]*([\d.]+)\s*亿', all_text)
+        if match:
+            try:
+                data['real_volume'] = float(match.group(1))
+            except:
+                pass
+    
+    # 9. 预测量能
+    match = re.search(r'预测量能[^0-9]*([\d.]+)\s*亿', all_text)
+    if match:
+        try:
+            data['predict_volume'] = float(match.group(1))
+        except:
+            pass
+    
     return data
 
 
