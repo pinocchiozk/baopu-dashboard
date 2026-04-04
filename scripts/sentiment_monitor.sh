@@ -131,7 +131,7 @@ $ADB shell monkey -p com.aiyu.kaipanla -c android.intent.category.LAUNCHER 1 >/d
 sleep 8
 
 # 3. 点击市场情绪图标（首页第一排中间位置）
-$ADB shell input tap 440 252
+$ADB shell input tap 350 220
 sleep 5
 
 # 4. 等待页面加载并下滑刷新（确保情绪分数显示）
