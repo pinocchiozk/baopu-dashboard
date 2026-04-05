@@ -64,4 +64,112 @@
 
 ---
 
-*最后更新：2026-04-05*
+## 🗑️ 截图定期清理
+
+**执行时间：** 每周五收盘后（或每月最后一个交易日）
+
+**清理规则：**
+- `screenshots/emotion-kline/`：数据提取完成后，保留最近7天
+- `screenshots/comprehensive/`：数据提取完成后，保留最近7天
+- `screenshots/others/`：数据提取完成后，保留最近3天
+
+**幂等锁：** `screenshots_cleanup`（超时120秒）
+
+**操作：**
+```bash
+# 清理7天前的截图
+find /workspace/screenshots/emotion-kline -name "*.png" -mtime +7 -delete
+find /workspace/screenshots/comprehensive -name "*.png" -mtime +7 -delete
+find /workspace/screenshots/others -name "*.png" -mtime +3 -delete
+```
+
+---
+
+## 🔄 自动重试机制（claw-code 风格）
+
+基于 claw-code 的 recovery_recipes.rs 设计：
+
+> "known failure → auto-heal once → then escalate"
+
+**核心原则：失败后先自动恢复一次，再上报**
+
+### 重试食谱
+
+| 任务 | 重试次数 | 恢复动作 |
+|------|---------|---------|
+| sentiment_collection | 1次 | 等待30秒后重试 |
+| kline_update | 1次 | 等待1分钟后重试 |
+| screenshots_cleanup | 0次 | 直接跳过（不关键） |
+| feishu_push | 2次 | 指数退避重试 |
+
+### 实现代码模板
+
+```javascript
+async function executeWithAutoRetry(taskName, fn, options = {}) {
+  const recipes = {
+    'sentiment_collection': { retries: 1, delay: 30000 },
+    'kline_update': { retries: 1, delay: 60000 },
+    'feishu_push': { retries: 2, delay: 5000 },
+  };
+  
+  const recipe = recipes[taskName] || { retries: 0, delay: 0 };
+  let lastError;
+  
+  for (let attempt = 0; attempt <= recipe.retries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error;
+      if (attempt < recipe.retries) {
+        console.log(`[${taskName}] 第${attempt + 1}次失败，${recipe.delay}ms后重试...`);
+        await new Promise(r => setTimeout(r, recipe.delay));
+      }
+    }
+  }
+  
+  // 所有重试都失败，上报
+  emitEvent({
+    event: `heartbeat.${taskName}.failed`,
+    status: 'failed',
+    failure_class: 'timeout',
+    detail: lastError.message
+  });
+  throw lastError;
+}
+```
+
+### 熔断器（可选）
+
+连续失败5次后，熔断60秒不再尝试。
+
+---
+
+## 📡 事件系统（claw-code 风格）
+
+基于 claw-code 的 lane_events.rs 设计：
+
+> "events over scraped prose"
+
+### 事件命名规范
+
+```
+{domain}.{entity}.{action}
+
+示例：
+  agent.subagent.spawned
+  agent.subagent.completed
+  heartbeat.sentiment.collected
+  market.alert.breakstop
+```
+
+### 关键事件（触发飞书推送）
+
+| 事件 | 触发条件 | 推送内容 |
+|------|---------|---------|
+| `agent.subagent.failed` | subagent失败 | 错误详情 + 建议 |
+| `market.alert.breakstop` | 股票跌破止损 | 股票名 + 止损价 + 当前价 |
+| `heartbeat.kline.updated` | K线更新 | 更新完成 |
+
+---
+
+*最后更新：2026-04-05（加入自动重试+事件系统）*
