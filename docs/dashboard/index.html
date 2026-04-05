@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抱朴资本投研指挥中心</title>
+  <style>
+    :root {
+      --bg: #090d17;
+      --card: #101828;
+      --border: rgba(255,255,255,0.07);
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --blue: #3b82f6;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --purple: #8b5cf6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(139,92,246,0.1) 0%, transparent 50%);
+    }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(9,13,23,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-nav {
+      display: flex;
+      gap: 24px;
+    }
+    .header-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--text); }
+    
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    /* Section Titles */
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    
+    /* Grid Layout */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    
+    /* Stock Header Card */
+    .stock-header {
+      grid-column: span 2;
+    }
+    .stock-name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .stock-ticker {
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .stock-price {
+      font-size: 42px;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+    .stock-price.red { color: var(--red); }
+    .stock-price.green { color: var(--green); }
+    
+    /* Metric Row */
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .metric-item {
+      text-align: center;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+    }
+    .metric-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .metric-value {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .mvalue { font-size: 20px; font-weight: 600; }
+    .mvalue.red { color: var(--red); }
+    .mvalue.green { color: var(--green); }
+    .mvalue.white { color: var(--text); }
+    .mvalue.yellow { color: var(--yellow); }
+    .mvalue.blue { color: var(--blue); }
+    .mvalue.purple { color: var(--purple); }
+    
+    /* Progress Bar */
+    .prog-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .prog-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .prog-fill.blue { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+    .prog-fill.green { background: var(--green); }
+    .prog-fill.yellow { background: var(--yellow); }
+    
+    /* Golden Rules List */
+    .rule-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .rule-icon.pass { background: rgba(16,185,129,0.2); color: var(--green); }
+    .rule-icon.fail { background: rgba(239,68,68,0.2); color: var(--red); }
+    .rule-icon.partial { background: rgba(245,158,11,0.2); color: var(--yellow); }
+    
+    /* Sentiment Gauge */
+    .sentiment-gauge {
+      width: 200px;
+      height: 100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .gauge-bg {
+      width: 200px;
+      height: 100px;
+      border-radius: 100px 100px 0 0;
+      background: conic-gradient(
+        from 180deg at 50% 100%,
+        var(--green) 0deg,
+        var(--yellow) 90deg,
+        var(--red) 180deg
+      );
+      opacity: 0.3;
+    }
+    .gauge-fill {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      height: 90px;
+      background: var(--text);
+      transform-origin: bottom center;
+      transform: rotate(-90deg);
+      transition: transform 1s ease;
+      border-radius: 2px;
+    }
+    .gauge-label {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    /* Tech Analysis */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .tech-item {
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+    }
+    .tech-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .tech-price {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .tech-signal {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .tech-signal.buy { background: rgba(16,185,129,0.2); color: var(--green); }
+    .tech-signal.hold { background: rgba(245,158,11,0.2); color: var(--yellow); }
+    .tech-signal.sell { background: rgba(239,68,68,0.2); color: var(--red); }
+    
+    /* Risk Items */
+    .risk-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .risk-item:last-child { border-bottom: none; }
+    .risk-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+    .risk-dot.high { background: var(--red); }
+    .risk-dot.medium { background: var(--yellow); }
+    .risk-dot.low { background: var(--green); }
+    
+    /* Agent Status */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .agent-item {
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .agent-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      animation: pulse 2s infinite;
+    }
+    .agent-dot.active { background: var(--green); }
+    .agent-dot.idle { background: var(--yellow); }
+    .agent-dot.offline { background: var(--muted); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .agent-name {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .agent-role {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    
+    /* Catalyst List */
+    .catalyst-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .catalyst-item:last-child { border-bottom: none; }
+    .catalyst-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 12px;
+    }
+    .catalyst-icon.positive { background: rgba(16,185,129,0.2); color: var(--green); }
+    .catalyst-icon.negative { background: rgba(239,68,68,0.2); color: var(--red); }
+    .catalyst-icon.neutral { background: rgba(100,116,139,0.2); color: var(--muted); }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer a { color: var(--blue); text-decoration: none; }
+    
+    /* Section spacing */
+    .section { margin-bottom: 32px; }
+    .section:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>🏛️ 抱朴资本投研指挥中心</h1>
+    <nav class="header-nav">
+      <a href="#"> Dashboard</a>
+      <a href="#"> 持仓</a>
+      <a href="#"> 研究</a>
+      <a href="#"> 设置</a>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <!-- 持仓概览 -->
+    <section class="section">
+      <div class="section-title">📊 持仓概览</div>
+      <div class="grid-4">
+        <div class="card stock-header">
+          <div class="stock-name">阳光电源</div>
+          <div class="stock-ticker">300274 · SZSE</div>
+          <div class="stock-price red">¥133.91</div>
+          <div class="metric-row">
+            <div class="metric-item">
+              <div class="metric-label">持仓成本</div>
+              <div class="mvalue white">¥160.75</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">浮亏</div>
+              <div class="mvalue red">-16.71%</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">持仓市值</div>
+              <div class="mvalue blue">¥267,820</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">PE估值</span>
+          </div>
+          <div class="mvalue blue">18.6x</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">行业中位数: 25.3x</div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">PEG</span>
+          </div>
+          <div class="mvalue green">0.85</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">=&lt;1 低估区间</div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">机构评级</span>
+          </div>
+          <div class="mvalue green">买入</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">目标价: ¥185</div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">年同比增速</span>
+          </div>
+          <div class="mvalue green">+35.2%</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">Q4环比: +12.8%</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 赛道分析 -->
+    <section class="section">
+      <div class="section-title">🎯 赛道分析：黄金十尺</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">光储出海 · 阳光电源</span>
+            <span class="mvalue green">8/10 通过</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill blue" style="width:80%"></div></div>
+          <div style="margin-top:16px">
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>渗透率&lt;50%，处于高速增长期</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>产业链利润分配：龙头优势明显</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>出海逻辑：欧洲/美国市场持续突破</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>竞争格局：CR3集中度提升</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>技术壁垒：专利布局完善</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon partial">~</span>
+              <span>政策风险：补贴退坡影响（可控）</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>现金流：经营现金流持续改善</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon pass">✓</span>
+              <span>产能周期：全球产能布局完成</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">市场情绪</span>
+          </div>
+          <div class="sentiment-gauge">
+            <div class="gauge-bg"></div>
+            <div class="gauge-fill" style="transform: rotate(-45deg)"></div>
+          </div>
+          <div class="gauge-label" style="color:var(--yellow)">📊 正常偏暖</div>
+          <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--muted)">
+            情绪指数: 58/100
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 技术分析 -->
+    <section class="section">
+      <div class="section-title">📈 技术分析</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">缠论结构</span>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <div class="tech-label">当前中枢</div>
+              <div class="tech-price">¥128-135</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">离开段状态</div>
+              <div class="tech-signal hold">震荡整理</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">5日线</div>
+              <div class="tech-price">¥132.45</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">20日线</div>
+              <div class="tech-price">¥138.72</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">止损止盈位</span>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <div class="tech-label">止损价</div>
+              <div class="tech-price" style="color:var(--red)">¥122.50</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">止盈价</div>
+              <div class="tech-price" style="color:var(--green)">¥178.00</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">距止损</div>
+              <div class="tech-price" style="color:var(--yellow)">-8.5%</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-label">距止盈</div>
+              <div class="tech-price">+32.9%</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">交易信号</span>
+          </div>
+          <div style="text-align:center;padding:20px 0">
+            <div class="tech-signal hold" style="font-size:16px;padding:8px 16px">持有</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:12px">
+              逻辑未破·持仓待涨<br>
+              破¥122.50止损
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 风险与催化剂 -->
+    <section class="section">
+      <div class="section-title">⚠️ 风险与催化剂</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">风险项</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-dot high"></span>
+            <span>光伏组件价格持续下跌，毛利率承压</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-dot medium"></span>
+            <span>欧盟能源补贴政策不确定性</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-dot medium"></span>
+            <span>汇率波动影响海外收入确认</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-dot low"></span>
+            <span>竞争加剧（华为/隆基扩张）</span>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">催化剂</span>
+          </div>
+          <div class="catalyst-item">
+            <span class="catalyst-icon positive">+</span>
+            <span>欧洲电价反弹，分布式光伏需求回暖</span>
+          </div>
+          <div class="catalyst-item">
+            <span class="catalyst-icon positive">+</span>
+            <span>美国反规避调查豁免延期</span>
+          </div>
+          <div class="catalyst-item">
+            <span class="catalyst-icon neutral">~</span>
+            <span>Q1财报（4月披露）</span>
+          </div>
+          <div class="catalyst-item">
+            <span class="catalyst-icon positive">+</span>
+            <span>储能业务Q2订单超预期</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Agent团队状态 -->
+    <section class="section">
+      <div class="section-title">🤖 Agent 团队状态</div>
+      <div class="card">
+        <div class="agent-grid">
+          <div class="agent-item">
+            <div class="agent-dot active"></div>
+            <div class="agent-name">宏观分析师</div>
+            <div class="agent-role">L1-L5信心判断</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot active"></div>
+            <div class="agent-name">赛道分析师</div>
+            <div class="agent-role">黄金十尺评估</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot active"></div>
+            <div class="agent-name">个股分析师</div>
+            <div class="agent-role">PEG/季度环比</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot idle"></div>
+            <div class="agent-name">产业情报员</div>
+            <div class="agent-role">CI情报追踪</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot idle"></div>
+            <div class="agent-name">执行监控</div>
+            <div class="agent-role">止损止盈</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot offline"></div>
+            <div class="agent-name">report_writer</div>
+            <div class="agent-role">报告合成</div>
+          </div>
+          <div class="agent-item">
+            <div class="agent-dot offline"></div>
+            <div class="agent-name">fact_checker</div>
+            <div class="agent-role">质量核查</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <p>抱朴资本投研指挥中心 · 数据更新时间: <span id="update-time">2026-04-05 08:30</span></p>
+    <p style="margin-top:8px">
+      <a href="https://x2qior3wl6vn.space.minimaxi.com" target="_blank">Dashboard</a> · 
+      风险提示：投资有风险，决策需谨慎
+    </p>
+  </footer>
+  
+  <script>
+    // 更新时间
+    document.getElementById('update-time').textContent = new Date().toLocaleString('zh-CN');
+    
+    // 模拟数据刷新
+    setInterval(() => {
+      document.getElementById('update-time').textContent = new Date().toLocaleString('zh-CN');
+    }, 60000);
+  </script>
+</body>
+</html>
