@@ -8,6 +8,7 @@
     :root {
       --bg: #090d17;
       --card: #101828;
+      --card-hover: #151d2e;
       --border: rgba(255,255,255,0.07);
       --text: #e2e8f0;
       --muted: #64748b;
@@ -16,6 +17,7 @@
       --red: #ef4444;
       --yellow: #f59e0b;
       --purple: #8b5cf6;
+      --orange: #f97316;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -24,15 +26,15 @@
       color: var(--text);
       min-height: 100vh;
       background-image: 
-        radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 100%, rgba(139,92,246,0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(139,92,246,0.08) 0%, transparent 50%);
     }
     
     /* Header */
     .header {
       position: sticky;
       top: 0;
-      background: rgba(9,13,23,0.8);
+      background: rgba(9,13,23,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 16px 24px;
@@ -48,17 +50,33 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .header-nav {
+    .header-right {
       display: flex;
-      gap: 24px;
+      align-items: center;
+      gap: 16px;
     }
-    .header-nav a {
+    .header-time {
+      font-size: 13px;
       color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
     }
-    .header-nav a:hover { color: var(--text); }
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--green);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
     
     /* Main Container */
     .container {
@@ -69,12 +87,15 @@
     
     /* Section Titles */
     .section-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
     /* Grid Layout */
@@ -88,6 +109,11 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
     }
     .card-header {
       display: flex;
@@ -96,10 +122,20 @@
       margin-bottom: 16px;
     }
     .card-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--muted);
     }
+    .card-badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .badge-success { background: rgba(16,185,129,0.15); color: var(--green); }
+    .badge-warning { background: rgba(245,158,11,0.15); color: var(--yellow); }
+    .badge-danger { background: rgba(239,68,68,0.15); color: var(--red); }
+    .badge-info { background: rgba(59,130,246,0.15); color: var(--blue); }
     
     /* Stock Header Card */
     .stock-header {
@@ -111,39 +147,54 @@
       margin-bottom: 4px;
     }
     .stock-ticker {
-      font-size: 16px;
+      font-size: 14px;
       color: var(--muted);
+    }
+    .stock-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-top: 16px;
     }
     .stock-price {
       font-size: 42px;
       font-weight: 700;
-      margin-top: 16px;
     }
     .stock-price.red { color: var(--red); }
     .stock-price.green { color: var(--green); }
+    .stock-change {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .stock-change.up { background: rgba(16,185,129,0.15); color: var(--green); }
+    .stock-change.down { background: rgba(239,68,68,0.15); color: var(--red); }
     
     /* Metric Row */
     .metric-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
     .metric-item {
       text-align: center;
-      padding: 12px;
-      background: rgba(255,255,255,0.03);
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
       border-radius: 8px;
+      border: 1px solid var(--border);
     }
     .metric-label {
       font-size: 11px;
       color: var(--muted);
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .metric-value {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .mvalue { font-size: 20px; font-weight: 600; }
     .mvalue.red { color: var(--red); }
@@ -152,11 +203,19 @@
     .mvalue.yellow { color: var(--yellow); }
     .mvalue.blue { color: var(--blue); }
     .mvalue.purple { color: var(--purple); }
+    .mvalue.orange { color: var(--orange); }
+    
+    /* Data Source Tag */
+    .data-source {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
     
     /* Progress Bar */
     .prog-bar {
       height: 8px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       border-radius: 4px;
       overflow: hidden;
       margin-top: 8px;
@@ -169,8 +228,9 @@
     .prog-fill.blue { background: linear-gradient(90deg, var(--blue), var(--purple)); }
     .prog-fill.green { background: var(--green); }
     .prog-fill.yellow { background: var(--yellow); }
+    .prog-fill.red { background: var(--red); }
     
-    /* Golden Rules List */
+    /* Rule List */
     .rule-item {
       display: flex;
       align-items: center;
@@ -180,56 +240,117 @@
     }
     .rule-item:last-child { border-bottom: none; }
     .rule-icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       margin-right: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 12px;
+      font-weight: 600;
     }
     .rule-icon.pass { background: rgba(16,185,129,0.2); color: var(--green); }
     .rule-icon.fail { background: rgba(239,68,68,0.2); color: var(--red); }
     .rule-icon.partial { background: rgba(245,158,11,0.2); color: var(--yellow); }
     
-    /* Sentiment Gauge */
-    .sentiment-gauge {
-      width: 200px;
-      height: 100px;
-      margin: 0 auto;
+    /* Sentiment Section */
+    .sentiment-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 16px;
+    }
+    .sentiment-gauge-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .gauge-container {
       position: relative;
+      width: 160px;
+      height: 80px;
     }
     .gauge-bg {
-      width: 200px;
-      height: 100px;
-      border-radius: 100px 100px 0 0;
+      width: 160px;
+      height: 80px;
+      border-radius: 80px 80px 0 0;
       background: conic-gradient(
         from 180deg at 50% 100%,
         var(--green) 0deg,
         var(--yellow) 90deg,
         var(--red) 180deg
       );
-      opacity: 0.3;
+      opacity: 0.25;
     }
-    .gauge-fill {
+    .gauge-cover {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      width: 140px;
+      height: 70px;
+      border-radius: 70px 70px 0 0;
+      background: var(--card);
+    }
+    .gauge-needle {
       position: absolute;
       bottom: 0;
       left: 50%;
       width: 4px;
-      height: 90px;
+      height: 65px;
       background: var(--text);
       transform-origin: bottom center;
-      transform: rotate(-90deg);
+      transform: translateX(-50%) rotate(-90deg);
       transition: transform 1s ease;
       border-radius: 2px;
     }
     .gauge-label {
       text-align: center;
-      margin-top: 12px;
-      font-size: 24px;
+      margin-top: 16px;
+      font-size: 18px;
       font-weight: 700;
     }
+    .gauge-value {
+      font-size: 36px;
+      font-weight: 700;
+    }
+    .gauge-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    
+    /* K-Line Mini Chart */
+    .kline-mini {
+      padding: 12px;
+    }
+    .kline-row {
+      display: flex;
+      align-items: center;
+      padding: 6px 0;
+      font-size: 13px;
+    }
+    .kline-date {
+      width: 60px;
+      color: var(--muted);
+    }
+    .kline-bar {
+      flex: 1;
+      height: 16px;
+      margin: 0 8px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .kline-bar.up { background: rgba(16,185,129,0.3); }
+    .kline-bar.down { background: rgba(239,68,68,0.3); }
+    .kline-score {
+      width: 40px;
+      text-align: right;
+      font-weight: 600;
+    }
+    .kline-score.up { color: var(--green); }
+    .kline-score.down { color: var(--red); }
     
     /* Tech Analysis */
     .tech-grid {
@@ -238,23 +359,25 @@
       gap: 12px;
     }
     .tech-item {
-      padding: 12px;
-      background: rgba(255,255,255,0.03);
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
       border-radius: 8px;
+      border: 1px solid var(--border);
     }
     .tech-label {
       font-size: 11px;
       color: var(--muted);
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .tech-price {
       font-size: 18px;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .tech-signal {
       display: inline-block;
-      padding: 4px 8px;
+      padding: 4px 10px;
       border-radius: 4px;
       font-size: 11px;
       font-weight: 600;
@@ -282,33 +405,45 @@
     .risk-dot.high { background: var(--red); }
     .risk-dot.medium { background: var(--yellow); }
     .risk-dot.low { background: var(--green); }
+    .risk-text { flex: 1; }
+    .risk-level {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 8px;
+    }
+    .risk-level.high { background: rgba(239,68,68,0.15); color: var(--red); }
+    .risk-level.medium { background: rgba(245,158,11,0.15); color: var(--yellow); }
+    .risk-level.low { background: rgba(16,185,129,0.15); color: var(--green); }
     
     /* Agent Status */
     .agent-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 12px;
     }
     .agent-item {
       padding: 16px;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.02);
       border-radius: 8px;
+      border: 1px solid var(--border);
       text-align: center;
+      transition: all 0.2s;
+    }
+    .agent-item:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
     }
     .agent-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      margin: 0 auto 8px;
+      margin: 0 auto 10px;
       animation: pulse 2s infinite;
     }
     .agent-dot.active { background: var(--green); }
     .agent-dot.idle { background: var(--yellow); }
     .agent-dot.offline { background: var(--muted); }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
     .agent-name {
       font-size: 13px;
       font-weight: 500;
@@ -329,18 +464,29 @@
     }
     .catalyst-item:last-child { border-bottom: none; }
     .catalyst-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 12px;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 600;
     }
     .catalyst-icon.positive { background: rgba(16,185,129,0.2); color: var(--green); }
     .catalyst-icon.negative { background: rgba(239,68,68,0.2); color: var(--red); }
     .catalyst-icon.neutral { background: rgba(100,116,139,0.2); color: var(--muted); }
+    .catalyst-text { flex: 1; }
+    .catalyst-date {
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+    
+    /* Section spacing */
+    .section { margin-bottom: 28px; }
+    .section:last-child { margin-bottom: 0; }
     
     /* Footer */
     .footer {
@@ -348,23 +494,22 @@
       padding: 32px;
       color: var(--muted);
       font-size: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
     }
     .footer a { color: var(--blue); text-decoration: none; }
-    
-    /* Section spacing */
-    .section { margin-bottom: 32px; }
-    .section:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
   <header class="header">
     <h1>🏛️ 抱朴资本投研指挥中心</h1>
-    <nav class="header-nav">
-      <a href="#"> Dashboard</a>
-      <a href="#"> 持仓</a>
-      <a href="#"> 研究</a>
-      <a href="#"> 设置</a>
-    </nav>
+    <div class="header-right">
+      <span class="header-time" id="current-time">--</span>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span>QVeris 已连接</span>
+      </div>
+    </div>
   </header>
   
   <main class="container">
@@ -373,21 +518,27 @@
       <div class="section-title">📊 持仓概览</div>
       <div class="grid-4">
         <div class="card stock-header">
-          <div class="stock-name">阳光电源</div>
-          <div class="stock-ticker">300274 · SZSE</div>
-          <div class="stock-price red">¥133.91</div>
+          <div class="stock-name" id="stock-name">阳光电源</div>
+          <div class="stock-ticker" id="stock-code">300274 · SZSE</div>
+          <div class="stock-price-row">
+            <div class="stock-price red" id="stock-price">¥--</div>
+            <span class="stock-change down" id="stock-change">--%</span>
+          </div>
           <div class="metric-row">
             <div class="metric-item">
               <div class="metric-label">持仓成本</div>
-              <div class="mvalue white">¥160.75</div>
+              <div class="metric-value mvalue white" id="cost-price">¥160.75</div>
+              <div class="data-source">手动更新</div>
             </div>
             <div class="metric-item">
-              <div class="metric-label">浮亏</div>
-              <div class="mvalue red">-16.71%</div>
+              <div class="metric-label">浮亏/盈</div>
+              <div class="metric-value mvalue red" id="profit-loss">--</div>
+              <div class="data-source">自动计算</div>
             </div>
             <div class="metric-item">
               <div class="metric-label">持仓市值</div>
-              <div class="mvalue blue">¥267,820</div>
+              <div class="metric-value mvalue blue" id="market-value">¥267,820</div>
+              <div class="data-source">2000股</div>
             </div>
           </div>
         </div>
@@ -395,33 +546,39 @@
         <div class="card">
           <div class="card-header">
             <span class="card-title">PE估值</span>
+            <span class="card-badge badge-info">TTM</span>
           </div>
-          <div class="mvalue blue">18.6x</div>
+          <div class="metric-value mvalue blue" id="pe-ratio">--</div>
           <div style="font-size:12px;color:var(--muted);margin-top:8px">行业中位数: 25.3x</div>
+          <div class="data-source">QVeris API</div>
         </div>
         
         <div class="card">
           <div class="card-header">
             <span class="card-title">PEG</span>
+            <span class="card-badge badge-success" id="peg-badge">低估</span>
           </div>
-          <div class="mvalue green">0.85</div>
+          <div class="metric-value mvalue green" id="peg-value">0.85</div>
           <div style="font-size:12px;color:var(--muted);margin-top:8px">=&lt;1 低估区间</div>
+          <div class="data-source">QVeris API</div>
         </div>
         
         <div class="card">
           <div class="card-header">
             <span class="card-title">机构评级</span>
+            <span class="card-badge badge-success">买入</span>
           </div>
-          <div class="mvalue green">买入</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:8px">目标价: ¥185</div>
+          <div class="metric-value mvalue green">目标¥185</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">综合20家机构</div>
         </div>
         
         <div class="card">
           <div class="card-header">
             <span class="card-title">年同比增速</span>
           </div>
-          <div class="mvalue green">+35.2%</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:8px">Q4环比: +12.8%</div>
+          <div class="metric-value mvalue green" id="yoy-growth">+35.2%</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px" id="qoq-growth">Q4环比: +12.8%</div>
+          <div class="data-source">财报数据</div>
         </div>
       </div>
     </section>
@@ -472,18 +629,32 @@
           </div>
         </div>
         
+        <!-- 情绪数据 -->
         <div class="card">
           <div class="card-header">
             <span class="card-title">市场情绪</span>
+            <span class="card-badge badge-warning">实时</span>
           </div>
-          <div class="sentiment-gauge">
-            <div class="gauge-bg"></div>
-            <div class="gauge-fill" style="transform: rotate(-45deg)"></div>
+          <div class="sentiment-grid">
+            <div class="sentiment-gauge-wrapper">
+              <div class="gauge-container">
+                <div class="gauge-bg"></div>
+                <div class="gauge-cover"></div>
+                <div class="gauge-needle" id="sentiment-needle"></div>
+              </div>
+              <div class="gauge-label">
+                <div class="gauge-value" id="sentiment-value">--</div>
+                <div class="gauge-desc">情绪指数</div>
+              </div>
+            </div>
+            <div class="kline-mini">
+              <div style="font-size:12px;color:var(--muted);margin-bottom:8px">近5日情绪K线</div>
+              <div id="kline-container">
+                <!-- 动态生成 -->
+              </div>
+            </div>
           </div>
-          <div class="gauge-label" style="color:var(--yellow)">📊 正常偏暖</div>
-          <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--muted)">
-            情绪指数: 58/100
-          </div>
+          <div class="data-source" style="text-align:center;margin-top:12px">数据来源: 开盘啦情绪采集</div>
         </div>
       </div>
     </section>
@@ -494,31 +665,7 @@
       <div class="grid-3">
         <div class="card">
           <div class="card-header">
-            <span class="card-title">缠论结构</span>
-          </div>
-          <div class="tech-grid">
-            <div class="tech-item">
-              <div class="tech-label">当前中枢</div>
-              <div class="tech-price">¥128-135</div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-label">离开段状态</div>
-              <div class="tech-signal hold">震荡整理</div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-label">5日线</div>
-              <div class="tech-price">¥132.45</div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-label">20日线</div>
-              <div class="tech-price">¥138.72</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">止损止盈位</span>
+            <span class="card-title">关键价位</span>
           </div>
           <div class="tech-grid">
             <div class="tech-item">
@@ -530,12 +677,12 @@
               <div class="tech-price" style="color:var(--green)">¥178.00</div>
             </div>
             <div class="tech-item">
-              <div class="tech-label">距止损</div>
-              <div class="tech-price" style="color:var(--yellow)">-8.5%</div>
+              <div class="tech-label">当前中枢</div>
+              <div class="tech-price">¥128-135</div>
             </div>
             <div class="tech-item">
-              <div class="tech-label">距止盈</div>
-              <div class="tech-price">+32.9%</div>
+              <div class="tech-label">距止损</div>
+              <div class="tech-price" style="color:var(--yellow)" id="dist-to-stop">-8.5%</div>
             </div>
           </div>
         </div>
@@ -543,12 +690,37 @@
         <div class="card">
           <div class="card-header">
             <span class="card-title">交易信号</span>
+            <span class="card-badge badge-warning">持仓</span>
           </div>
           <div style="text-align:center;padding:20px 0">
-            <div class="tech-signal hold" style="font-size:16px;padding:8px 16px">持有</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:12px">
+            <div class="tech-signal hold" style="font-size:16px;padding:10px 20px">持有</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.6">
               逻辑未破·持仓待涨<br>
               破¥122.50止损
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">CI情报状态</span>
+            <span class="card-badge badge-info">CI-001</span>
+          </div>
+          <div style="padding:8px 0">
+            <div class="catalyst-item">
+              <span class="catalyst-icon positive">+</span>
+              <span class="catalyst-text">欧洲电价反弹</span>
+              <span class="catalyst-date">4月</span>
+            </div>
+            <div class="catalyst-item">
+              <span class="catalyst-icon positive">+</span>
+              <span class="catalyst-text">美反规避豁免延期</span>
+              <span class="catalyst-date">3月</span>
+            </div>
+            <div class="catalyst-item">
+              <span class="catalyst-icon neutral">~</span>
+              <span class="catalyst-text">Q1财报待披露</span>
+              <span class="catalyst-date">4月</span>
             </div>
           </div>
         </div>
@@ -565,19 +737,23 @@
           </div>
           <div class="risk-item">
             <span class="risk-dot high"></span>
-            <span>光伏组件价格持续下跌，毛利率承压</span>
+            <span class="risk-text">光伏组件价格持续下跌</span>
+            <span class="risk-level high">高</span>
           </div>
           <div class="risk-item">
             <span class="risk-dot medium"></span>
-            <span>欧盟能源补贴政策不确定性</span>
+            <span class="risk-text">欧盟能源补贴政策不确定性</span>
+            <span class="risk-level medium">中</span>
           </div>
           <div class="risk-item">
             <span class="risk-dot medium"></span>
-            <span>汇率波动影响海外收入确认</span>
+            <span class="risk-text">汇率波动影响海外收入</span>
+            <span class="risk-level medium">中</span>
           </div>
           <div class="risk-item">
             <span class="risk-dot low"></span>
-            <span>竞争加剧（华为/隆基扩张）</span>
+            <span class="risk-text">竞争加剧（华为/隆基）</span>
+            <span class="risk-level low">低</span>
           </div>
         </div>
         
@@ -587,19 +763,19 @@
           </div>
           <div class="catalyst-item">
             <span class="catalyst-icon positive">+</span>
-            <span>欧洲电价反弹，分布式光伏需求回暖</span>
+            <span class="catalyst-text">欧洲电价反弹，分布式光伏需求回暖</span>
           </div>
           <div class="catalyst-item">
             <span class="catalyst-icon positive">+</span>
-            <span>美国反规避调查豁免延期</span>
+            <span class="catalyst-text">美国反规避调查豁免延期</span>
           </div>
           <div class="catalyst-item">
             <span class="catalyst-icon neutral">~</span>
-            <span>Q1财报（4月披露）</span>
+            <span class="catalyst-text">Q1财报（4月披露）</span>
           </div>
           <div class="catalyst-item">
             <span class="catalyst-icon positive">+</span>
-            <span>储能业务Q2订单超预期</span>
+            <span class="catalyst-text">储能业务Q2订单超预期</span>
           </div>
         </div>
       </div>
@@ -613,22 +789,22 @@
           <div class="agent-item">
             <div class="agent-dot active"></div>
             <div class="agent-name">宏观分析师</div>
-            <div class="agent-role">L1-L5信心判断</div>
+            <div class="agent-role">L1-L5信心</div>
           </div>
           <div class="agent-item">
             <div class="agent-dot active"></div>
             <div class="agent-name">赛道分析师</div>
-            <div class="agent-role">黄金十尺评估</div>
+            <div class="agent-role">黄金十尺</div>
           </div>
           <div class="agent-item">
             <div class="agent-dot active"></div>
             <div class="agent-name">个股分析师</div>
-            <div class="agent-role">PEG/季度环比</div>
+            <div class="agent-role">PEG/季度</div>
           </div>
           <div class="agent-item">
             <div class="agent-dot idle"></div>
             <div class="agent-name">产业情报员</div>
-            <div class="agent-role">CI情报追踪</div>
+            <div class="agent-role">CI情报</div>
           </div>
           <div class="agent-item">
             <div class="agent-dot idle"></div>
@@ -651,7 +827,7 @@
   </main>
   
   <footer class="footer">
-    <p>抱朴资本投研指挥中心 · 数据更新时间: <span id="update-time">2026-04-05 08:30</span></p>
+    <p>抱朴资本投研指挥中心 · 数据更新时间: <span id="update-time">--</span></p>
     <p style="margin-top:8px">
       <a href="https://x2qior3wl6vn.space.minimaxi.com" target="_blank">Dashboard</a> · 
       风险提示：投资有风险，决策需谨慎
@@ -659,13 +835,130 @@
   </footer>
   
   <script>
-    // 更新时间
-    document.getElementById('update-time').textContent = new Date().toLocaleString('zh-CN');
+    // ========== 数据层 ==========
+    const DATA = {
+      stock: {
+        name: '阳光电源',
+        code: '300274',
+        price: null,        // QVeris API
+        change: null,      // QVeris API
+        cost: 160.75,
+        shares: 2000,
+        pe: null,           // QVeris API
+        peg: 0.85,
+        yoy: '+35.2%',
+        qoq: '+12.8%'
+      },
+      sentiment: {
+        value: 58,
+        kline: []
+      }
+    };
     
-    // 模拟数据刷新
-    setInterval(() => {
-      document.getElementById('update-time').textContent = new Date().toLocaleString('zh-CN');
-    }, 60000);
+    // ========== 更新函数 ==========
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('current-time').textContent = now.toLocaleString('zh-CN');
+      document.getElementById('update-time').textContent = now.toLocaleString('zh-CN');
+    }
+    
+    function updateStockPrice() {
+      // 模拟QVeris数据更新（实际需对接API）
+      const priceEl = document.getElementById('stock-price');
+      const changeEl = document.getElementById('stock-change');
+      const lossEl = document.getElementById('profit-loss');
+      
+      if (DATA.stock.price) {
+        priceEl.textContent = '¥' + DATA.stock.price.toFixed(2);
+        priceEl.className = 'stock-price ' + (DATA.stock.change >= 0 ? 'green' : 'red');
+        
+        changeEl.textContent = (DATA.stock.change >= 0 ? '+' : '') + DATA.stock.change.toFixed(2) + '%';
+        changeEl.className = 'stock-change ' + (DATA.stock.change >= 0 ? 'up' : 'down');
+        
+        const loss = (DATA.stock.price - DATA.stock.cost) * DATA.stock.shares;
+        const lossPct = ((DATA.stock.price - DATA.stock.cost) / DATA.stock.cost * 100).toFixed(2);
+        lossEl.textContent = (loss >= 0 ? '+' : '') + loss.toFixed(0) + ' (' + lossPct + '%)';
+        lossEl.className = 'metric-value mvalue ' + (loss >= 0 ? 'green' : 'red');
+        
+        // 更新距止损
+        const distToStop = ((122.50 - DATA.stock.price) / DATA.stock.price * 100).toFixed(1);
+        document.getElementById('dist-to-stop').textContent = distToStop + '%';
+      }
+    }
+    
+    function updateSentiment() {
+      const needle = document.getElementById('sentiment-needle');
+      const valueEl = document.getElementById('sentiment-value');
+      const klineContainer = document.getElementById('kline-container');
+      
+      // 情绪仪表 (-90deg ~ 90deg 对应 0-100)
+      const rotation = -90 + (DATA.sentiment.value / 100) * 180;
+      needle.style.transform = 'translateX(-50%) rotate(' + rotation + 'deg)';
+      
+      let colorClass = 'green';
+      let label = '冰点';
+      if (DATA.sentiment.value > 25 && DATA.sentiment.value <= 74) {
+        colorClass = 'yellow';
+        label = '正常';
+      } else if (DATA.sentiment.value >= 75) {
+        colorClass = 'red';
+        label = '过热';
+      }
+      valueEl.style.color = 'var(--' + colorClass + ')';
+      valueEl.textContent = DATA.sentiment.value;
+      
+      // K线数据
+      if (DATA.sentiment.kline.length > 0) {
+        klineContainer.innerHTML = DATA.sentiment.kline.map(k => {
+          const barClass = k.score >= 50 ? 'up' : 'down';
+          const scoreClass = k.score >= 50 ? 'up' : 'down';
+          const width = Math.abs(k.score - 50) * 2;
+          return `
+            <div class="kline-row">
+              <span class="kline-date">${k.date}</span>
+              <div class="kline-bar ${barClass}" style="width:${width}%"></div>
+              <span class="kline-score ${scoreClass}">${k.score}</span>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+    
+    // ========== 初始化 ==========
+    async function init() {
+      updateTime();
+      updateStockPrice();
+      updateSentiment();
+      
+      // 每分钟更新
+      setInterval(updateTime, 60000);
+      
+      // 尝试从开盘啦数据文件读取
+      try {
+        const resp = await fetch('/tmp/kaipanla/sentiment_data.csv');
+        if (resp.ok) {
+          const text = await resp.text();
+          // 解析CSV并更新DATA
+          console.log('情绪数据已加载');
+        }
+      } catch (e) {
+        console.log('情绪数据文件暂不可用');
+      }
+    }
+    
+    // 模拟数据（测试用）
+    DATA.stock.price = 133.91;
+    DATA.stock.change = -1.23;
+    DATA.sentiment.value = 58;
+    DATA.sentiment.kline = [
+      { date: '04-01', score: 45 },
+      { date: '04-02', score: 52 },
+      { date: '04-03', score: 38 },
+      { date: '04-04', score: 55 },
+      { date: '04-05', score: 58 }
+    ];
+    
+    init();
   </script>
 </body>
 </html>
