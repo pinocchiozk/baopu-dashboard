@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中芯国际 投资分析 Dashboard</title>
+<style>
+:root {
+  --bg-color: #0a0a0a;
+  --card-bg: #161616;
+  --card-bg-2: #1e1e1e;
+  --text-main: #ffffff;
+  --text-muted: #8c8c8c;
+  --text-dim: #5a5a5a;
+  --gold: #ffcc00;
+  --green: #00fa9a;
+  --green-2: #52c41a;
+  --red: #ff4d4f;
+  --blue: #1890ff;
+  --purple: #722ed1;
+  --border: #2a2a2a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.stock-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.stock-code {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.stock-badge {
+  background: rgba(24, 144, 255, 0.15);
+  color: var(--blue);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* 卡片 */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* 价格区域 */
+.price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.currency {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.change {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.change.down {
+  background: rgba(255, 77, 79, 0.15);
+  color: var(--red);
+}
+
+.change.up {
+  background: rgba(0, 250, 154, 0.15);
+  color: var(--green);
+}
+
+/* 网格指标 */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.grid-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* 情绪仪表 */
+.sentiment-gauge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gauge-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--gold) 0deg 135deg,
+    #333 135deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gauge-inner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.gauge-label {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.sentiment-info {
+  flex: 1;
+}
+
+.sentiment-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.sentiment-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.sentiment-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.status-attention {
+  background: rgba(250, 173, 20, 0.15);
+  color: #faad14;
+}
+
+.status-normal {
+  background: rgba(0, 250, 154, 0.15);
+  color: var(--green);
+}
+
+/* 产业阶段 */
+.phase-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phase-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.phase-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.phase-dot.active {
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+.phase-dot.passed {
+  background: var(--gold);
+}
+
+.phase-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.phase-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  position: relative;
+}
+
+.phase-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--gold);
+}
+
+/* 进程节点 */
+.node-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.node-item {
+  display: flex;
+  gap: 12px;
+  position: relative;
+}
+
+.node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.node-dot.inactive {
+  background: var(--border);
+}
+
+.node-content {
+  flex: 1;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.node-item:last-child .node-content {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.node-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.node-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* 进度条 */
+.progress-item {
+  margin-bottom: 12px;
+}
+
+.progress-item:last-child {
+  margin-bottom: 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.progress-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progress-bar {
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.green {
+  background: linear-gradient(90deg, var(--green-2), var(--green));
+}
+
+.progress-fill.gold {
+  background: linear-gradient(90deg, #d4a800, var(--gold));
+}
+
+.progress-fill.blue {
+  background: linear-gradient(90deg, #096dd9, var(--blue));
+}
+
+/* 操作信号 */
+.signal-box {
+  background: rgba(0, 250, 154, 0.08);
+  border: 1px solid rgba(0, 250, 154, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.signal-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.signal-action {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.signal-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 风险提示 */
+.risk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.risk-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.risk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.risk-dot.high { background: var(--red); }
+.risk-dot.medium { background: var(--gold); }
+.risk-dot.low { background: var(--green); }
+
+/* 综合评分 */
+.score-display {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.score-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.score-max {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.score-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px 0;
+  font-size: 10px;
+  color: var(--text-dim);
+}
+</style>
+</head>
+<body>
+
+<!-- 头部 -->
+<div class="header">
+  <div>
+    <div class="stock-name">中芯国际</div>
+    <div class="stock-code">SMIC | 00981.HK | 688981.SH</div>
+  </div>
+  <div class="stock-badge">半导体</div>
+</div>
+
+<!-- 行情卡片 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">核心行情</span>
+    <span class="card-tag" style="background: rgba(255,77,79,0.15); color: #ff4d4f;">03-02</span>
+  </div>
+  <div class="price-section">
+    <span class="price">52.85</span>
+    <span class="currency">HK$</span>
+    <span class="change down">-3.38%</span>
+  </div>
+  <div class="grid-3">
+    <div class="grid-item">
+      <div class="grid-value">52.85</div>
+      <div class="grid-label">今开</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-value">50.05</div>
+      <div class="grid-label">今低</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-value">52.85</div>
+      <div class="grid-label">今高</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-value">33.3亿</div>
+      <div class="grid-label">成交额</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-value">6541万</div>
+      <div class="grid-label">成交量</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-value">5.6%</div>
+      <div class="grid-label">振幅</div>
+    </div>
+  </div>
+</div>
+
+<!-- 情绪周期 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">情绪周期定位</span>
+    <span class="card-tag status-attention">逆向参考</span>
+  </div>
+  <div class="sentiment-gauge">
+    <div class="gauge-circle">
+      <div class="gauge-inner">
+        <span class="gauge-value">5.3</span>
+        <span class="gauge-label">/ 10</span>
+      </div>
+    </div>
+    <div class="sentiment-info">
+      <div class="sentiment-title">情绪评分</div>
+      <div class="sentiment-desc">港股整体回调，SMIC随市走弱</div>
+      <span class="sentiment-status status-normal">正常偏弱</span>
+    </div>
+  </div>
+</div>
+
+<!-- 产业趋势 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">产业三阶段</span>
+    <span class="card-tag" style="background: rgba(0,250,154,0.15); color: #00fa9a;">当前</span>
+  </div>
+  <div class="phase-container">
+    <div class="phase-node">
+      <div class="phase-dot passed"></div>
+      <span class="phase-label">题材</span>
+    </div>
+    <div class="phase-line"></div>
+    <div class="phase-node">
+      <div class="phase-dot active"></div>
+      <span class="phase-label">业绩预期</span>
+    </div>
+    <div class="phase-line"></div>
+    <div class="phase-node">
+      <div class="phase-dot"></div>
+      <span class="phase-label">业绩驱动</span>
+    </div>
+  </div>
+  <div style="margin-top: 12px; padding: 10px; background: var(--card-bg-2); border-radius: 8px;">
+    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">核心逻辑</div>
+    <div style="font-size: 13px; color: var(--text-main);">半导体国产替代 · 成熟制程扩张</div>
+  </div>
+</div>
+
+<!-- 进程节点 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">投资进程</span>
+  </div>
+  <div class="node-list">
+    <div class="node-item">
+      <div class="node-dot"></div>
+      <div class="node-content">
+        <div class="node-title">产业趋势确认</div>
+        <div class="node-desc">半导体国产替代大趋势确立</div>
+      </div>
+    </div>
+    <div class="node-item">
+      <div class="node-dot active"></div>
+      <div class="node-content">
+        <div class="node-title">业绩验证期</div>
+        <div class="node-desc">等待产能释放与订单落地</div>
+      </div>
+    </div>
+    <div class="node-item">
+      <div class="node-dot inactive"></div>
+      <div class="node-content">
+        <div class="node-title">估值兑现</div>
+        <div class="node-desc">等待PE回归合理区间</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 进度指标 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">多维评估</span>
+  </div>
+  <div class="progress-item">
+    <div class="progress-header">
+      <span class="progress-label">技术面</span>
+      <span class="progress-value">70%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill green" style="width: 70%;"></div>
+    </div>
+  </div>
+  <div class="progress-item">
+    <div class="progress-header">
+      <span class="progress-label">产业趋势</span>
+      <span class="progress-value">85%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill gold" style="width: 85%;"></div>
+    </div>
+  </div>
+  <div class="progress-item">
+    <div class="progress-header">
+      <span class="progress-label">情绪周期</span>
+      <span class="progress-value">60%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill blue" style="width: 60%;"></div>
+    </div>
+  </div>
+  <div class="progress-item">
+    <div class="progress-header">
+      <span class="progress-label">基本面</span>
+      <span class="progress-value">待完善</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 0%; background: #333;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 操作信号 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">操作信号</span>
+  </div>
+  <div class="signal-box">
+    <div class="signal-label">综合信号</div>
+    <div class="signal-action">观望</div>
+    <div class="signal-detail">等待情绪修复 + 基本面数据完善</div>
+  </div>
+</div>
+
+<!-- 风险提示 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">风险提示</span>
+  </div>
+  <div class="risk-list">
+    <div class="risk-item">
+      <span class="risk-dot high"></span>
+      <span>行业周期波动</span>
+    </div>
+    <div class="risk-item">
+      <span class="risk-dot medium"></span>
+      <span>美国制裁风险</span>
+    </div>
+    <div class="risk-item">
+      <span class="risk-dot low"></span>
+      <span>流动性：港股大票，风险可控</span>
+    </div>
+  </div>
+</div>
+
+<!-- 综合评分 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">综合评分</span>
+  </div>
+  <div class="score-display">
+    <span class="score-number">7.0</span><span class="score-max">/10</span>
+    <div class="score-label">产业趋势 + 逆向情绪 = 结构机会</div>
+  </div>
+</div>
+
+<div class="footer">
+  数据来源：同花顺iFinD · 生成时间：2026-04-05<br>
+  抱朴资本投研系统 · 仅供参考
+</div>
+
+</body>
+</html>
