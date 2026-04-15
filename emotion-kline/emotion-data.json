@@ -39,8 +39,64 @@
       "close": 32,
       "high": 55,
       "low": 27
+    },
+    {
+      "date": "2026-04-07",
+      "label": "4 月 7 日",
+      "open": 55,
+      "close": 68,
+      "high": 68,
+      "low": 33
+    },
+    {
+      "date": "2026-04-08",
+      "label": "4月8日",
+      "open": 84,
+      "close": 88,
+      "high": 88,
+      "low": 51
+    },
+    {
+      "date": "2026-04-09",
+      "label": "4月9日",
+      "open": 72,
+      "close": 42,
+      "high": 72,
+      "low": 20
+    },
+    {
+      "date": "2026-04-10",
+      "label": "4月10日",
+      "open": 62,
+      "close": 62,
+      "high": 64,
+      "low": 47
+    },
+    {
+      "date": "2026-04-13",
+      "label": "4月13日",
+      "open": 56,
+      "close": 49,
+      "high": 56,
+      "low": 20
+    },
+    {
+      "date": "2026-04-14",
+      "label": "4月14日",
+      "open": 60,
+      "close": 62,
+      "high": 63,
+      "low": 42
+    },
+    {
+      "date": "2026-04-15",
+      "label": "4月15日",
+      "open": 74,
+      "close": 47,
+      "high": 74,
+      "low": 40
     }
   ],
-  "lastUpdate": "2026-04-04 09:52:00",
+  "lastUpdate": "2026-04-07 15:05:00",
   "marketStatus": "closed"
 }
